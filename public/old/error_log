@@ -1,0 +1,64 @@
+[31-May-2021 21:18:20 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[31-May-2021 21:18:20 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[31-May-2021 21:18:20 UTC] PHP Warning:  include(): Failed opening 'functions.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home2/mangaztt/public_html/old/index.php on line 3
+[31-May-2021 21:18:20 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'mangaztt_user'@'localhost' (using password: YES) in /home2/mangaztt/public_html/old/remaining.php on line 111
+[19-Jun-2021 23:55:42 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[19-Jun-2021 23:55:42 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[19-Jun-2021 23:55:42 UTC] PHP Warning:  include(): Failed opening 'functions.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home2/mangaztt/public_html/old/index.php on line 3
+[19-Jun-2021 23:55:42 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'mangaztt_user'@'localhost' (using password: YES) in /home2/mangaztt/public_html/old/remaining.php on line 111
+[25-Jun-2021 04:33:29 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[25-Jun-2021 04:33:29 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[25-Jun-2021 04:33:29 UTC] PHP Warning:  include(): Failed opening 'functions.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home2/mangaztt/public_html/old/index.php on line 3
+[25-Jun-2021 04:33:29 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'mangaztt_user'@'localhost' (using password: YES) in /home2/mangaztt/public_html/old/remaining.php on line 111
+[07-Jul-2021 21:03:10 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[07-Jul-2021 21:03:10 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[07-Jul-2021 21:03:10 UTC] PHP Warning:  include(): Failed opening 'functions.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home2/mangaztt/public_html/old/index.php on line 3
+[07-Jul-2021 21:03:10 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'mangaztt_user'@'localhost' (using password: YES) in /home2/mangaztt/public_html/old/remaining.php on line 111
+[11-Jul-2021 03:06:48 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[11-Jul-2021 03:06:48 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[11-Jul-2021 03:06:48 UTC] PHP Warning:  include(): Failed opening 'functions.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home2/mangaztt/public_html/old/index.php on line 3
+[11-Jul-2021 03:06:48 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'mangaztt_user'@'localhost' (using password: YES) in /home2/mangaztt/public_html/old/remaining.php on line 111
+[24-Jul-2021 10:42:48 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[24-Jul-2021 10:42:48 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[24-Jul-2021 10:42:48 UTC] PHP Warning:  include(): Failed opening 'functions.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home2/mangaztt/public_html/old/index.php on line 3
+[24-Jul-2021 10:42:48 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'mangaztt_user'@'localhost' (using password: YES) in /home2/mangaztt/public_html/old/remaining.php on line 111
+[26-Jul-2021 10:57:17 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[26-Jul-2021 10:57:17 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[26-Jul-2021 10:57:17 UTC] PHP Warning:  include(): Failed opening 'functions.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home2/mangaztt/public_html/old/index.php on line 3
+[26-Jul-2021 10:57:17 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'mangaztt_user'@'localhost' (using password: YES) in /home2/mangaztt/public_html/old/remaining.php on line 111
+[29-Jul-2021 15:52:35 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[29-Jul-2021 15:52:35 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[29-Jul-2021 15:52:35 UTC] PHP Warning:  include(): Failed opening 'functions.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home2/mangaztt/public_html/old/index.php on line 3
+[29-Jul-2021 15:52:35 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'mangaztt_user'@'localhost' (using password: YES) in /home2/mangaztt/public_html/old/remaining.php on line 111
+[10-Aug-2021 15:01:11 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[10-Aug-2021 15:01:11 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[10-Aug-2021 15:01:11 UTC] PHP Warning:  include(): Failed opening 'functions.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home2/mangaztt/public_html/old/index.php on line 3
+[10-Aug-2021 15:01:11 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'mangaztt_user'@'localhost' (using password: YES) in /home2/mangaztt/public_html/old/remaining.php on line 111
+[14-Aug-2021 05:25:02 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[14-Aug-2021 05:25:02 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[14-Aug-2021 05:25:02 UTC] PHP Warning:  include(): Failed opening 'functions.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home2/mangaztt/public_html/old/index.php on line 3
+[14-Aug-2021 05:25:02 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'mangaztt_user'@'localhost' (using password: YES) in /home2/mangaztt/public_html/old/remaining.php on line 111
+[24-Aug-2021 01:46:05 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[24-Aug-2021 01:46:05 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[24-Aug-2021 01:46:05 UTC] PHP Warning:  include(): Failed opening 'functions.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home2/mangaztt/public_html/old/index.php on line 3
+[24-Aug-2021 01:46:05 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'mangaztt_user'@'localhost' (using password: YES) in /home2/mangaztt/public_html/old/remaining.php on line 111
+[25-Aug-2021 07:09:23 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[25-Aug-2021 07:09:23 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[25-Aug-2021 07:09:23 UTC] PHP Warning:  include(): Failed opening 'functions.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home2/mangaztt/public_html/old/index.php on line 3
+[25-Aug-2021 07:09:23 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'mangaztt_user'@'localhost' (using password: YES) in /home2/mangaztt/public_html/old/remaining.php on line 111
+[02-Sep-2021 17:17:21 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[02-Sep-2021 17:17:21 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[02-Sep-2021 17:17:21 UTC] PHP Warning:  include(): Failed opening 'functions.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home2/mangaztt/public_html/old/index.php on line 3
+[02-Sep-2021 17:17:21 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'mangaztt_user'@'localhost' (using password: YES) in /home2/mangaztt/public_html/old/remaining.php on line 111
+[11-Sep-2021 13:02:43 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[11-Sep-2021 13:02:43 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[11-Sep-2021 13:02:43 UTC] PHP Warning:  include(): Failed opening 'functions.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home2/mangaztt/public_html/old/index.php on line 3
+[11-Sep-2021 13:02:43 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'mangaztt_user'@'localhost' (using password: YES) in /home2/mangaztt/public_html/old/remaining.php on line 111
+[16-Sep-2021 06:43:37 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[16-Sep-2021 06:43:37 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[16-Sep-2021 06:43:37 UTC] PHP Warning:  include(): Failed opening 'functions.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home2/mangaztt/public_html/old/index.php on line 3
+[16-Sep-2021 06:43:37 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'mangaztt_user'@'localhost' (using password: YES) in /home2/mangaztt/public_html/old/remaining.php on line 111
+[18-Sep-2021 19:38:12 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[18-Sep-2021 19:38:12 UTC] PHP Warning:  include(functions.php): failed to open stream: No such file or directory in /home2/mangaztt/public_html/old/index.php on line 3
+[18-Sep-2021 19:38:12 UTC] PHP Warning:  include(): Failed opening 'functions.php' for inclusion (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home2/mangaztt/public_html/old/index.php on line 3
+[18-Sep-2021 19:38:12 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'mangaztt_user'@'localhost' (using password: YES) in /home2/mangaztt/public_html/old/remaining.php on line 111

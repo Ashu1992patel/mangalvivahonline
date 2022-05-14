@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home1/manga2s7/public_html/mangalvivahonline/
+    - /bin/cp -R * $DEPLOYPATH
