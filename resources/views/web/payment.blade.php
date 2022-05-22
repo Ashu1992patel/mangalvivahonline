@@ -1,6 +1,6 @@
 ﻿@extends('web.web_master')
 
-@section('title','Mangal Mandap : Payment')
+@section('title','Mangal Vivah :Payment')
 @section('head')
     <style type="text/css">
         /*.candidate_list_box {*/

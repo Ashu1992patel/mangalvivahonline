@@ -1,6 +1,6 @@
 @extends('web.web_master')
 
-@section('title','Mangal Mandap : Registration')
+@section('title','Mangal Vivah :Registration')
 
 @section('head')
     <link rel="stylesheet" href="{{url('css/form-wizard.css')}}"/>
@@ -186,6 +186,7 @@
     <section class="regitration_member">
         <div class="container">
             <form action="{{url('register')}}" method="post">
+                @csrf
                 <input type="hidden" name="admin_reg" value="0">
                 <div class="form-wizard form-header-modarn form-body-material">
                     <div class="frount_basic_heading"><span class="frount_head_txt">Registration</span></div>

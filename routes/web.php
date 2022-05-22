@@ -82,7 +82,7 @@ Route::get('getdetails', 'UserMasterController@getdetails');
 /***************Frontend*******************/
 
 Route::get('/', 'FrontendController@home');
-Route::get('registration', 'FrontendController@registration');
+// Route::get('registration', 'FrontendController@registration');
 Route::get('a_registration', 'FrontendController@a_registration');
 Route::post('search', 'FrontendController@ajax_candidate_list'); //candidate list
 Route::get('candidate_list', 'FrontendController@candidate_list'); //candidate list
@@ -124,6 +124,7 @@ Route::get('aadhar/{id}/delete', 'User_loginController@aadharUpdate');
 
 
 Route::post('register', 'User_loginController@register');
+Route::post('a_register', 'User_loginController@a_register');
 Route::get('login_user', 'User_loginController@login');
 
 ///interest

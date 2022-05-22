@@ -1,35 +1,35 @@
 @extends('web.web_master')
 
-@section('title','Mangal Mandap : Candidate List')
+@section('title', 'Mangal Vivah :Candidate List')
 @section('head')
     @include('web.usage.lightbox_plugin')
 @stop
 @section('content')
-    <input type="hidden" id="see_id" value="1"/>
+    <input type="hidden" id="see_id" value="1" />
     <section class="regitration_member all_pagescontainner">
         <div class="container">
             <div class="candidate_list_box">
                 <div class="cand_search_filterbox" id="filter_box">
-                    @if(isset($_SESSION['user_master']))
+                    @if (isset($_SESSION['user_master']))
                         @php
                             $s_user = \App\Profiles::find($_SESSION['user_master']->id);
                             $s_image = \App\Images::find($s_user->id);
-                                    $active = \App\ActivateProfile::find($_SESSION['user_master']->id);
-$today = \Carbon\Carbon::now()->format('Y-m-d');
+                            $active = \App\ActivateProfile::find($_SESSION['user_master']->id);
+                            $today = \Carbon\Carbon::now()->format('Y-m-d');
                         @endphp
                         <br>
-                        @if($active->active != 'no' && $active->active != '' && $active->deactivated_at >= $today)
+                        @if ($active->active != 'no' && $active->active != '' && $active->deactivated_at >= $today)
                             <div class="cand_profile_imgbox" style="cursor: pointer;"
-                                 onclick="location.href='{{url('view_profile').'/'.$s_user->id}}';">
+                                onclick="location.href='{{ url('view_profile') . '/' . $s_user->id }}';">
 
-                                @if(file_exists($s_image->pic1))
-                                    <img class="cand_img" src="{{url('').'/'.$s_image->pic1}}" width="50px"
-                                         height="50px"/>
+                                @if (file_exists($s_image->pic1))
+                                    <img class="cand_img" src="{{ url('') . '/' . $s_image->pic1 }}" width="50px"
+                                        height="50px" />
                                 @else
-                                    @if($s_image->gender == 'male')
-                                        <img class="cand_img" src="{{url('images/male.png')}}"/>
+                                    @if ($s_image->gender == 'male')
+                                        <img class="cand_img" src="{{ url('images/male.png') }}" />
                                     @else
-                                        <img class="cand_img" src="{{url('images/female.png')}}"/>
+                                        <img class="cand_img" src="{{ url('images/female.png') }}" />
                                     @endif
                                 @endif
 
@@ -38,46 +38,45 @@ $today = \Carbon\Carbon::now()->format('Y-m-d');
                                 @php
                                     $contact = \App\ViewContacts::where(['user_id' => $_SESSION['user_master']->id])->first();
                                 @endphp
-                                <div class="profile_cand_name"><i class="mdi mdi-account fa-sm pr-2"
-                                                                  aria-hidden="true"></i> {{ucwords($s_user->name)}}
-                                    (MM-{{$s_user->id}})
+                                <div class="profile_cand_name"><i class="mdi mdi-account fa-sm pr-2" aria-hidden="true"></i>
+                                    {{ ucwords($s_user->name) }}
+                                    (MM-{{ $s_user->id }})
                                 </div>
                                 <div class="profile_cand_name"><i class="mdi mdi-access-point fa-sm pr-2"
-                                                                  aria-hidden="true"></i> Plan :
-                                    MM- {{$active->plan}}
+                                        aria-hidden="true"></i> Plan :
+                                    MM- {{ $active->plan }}
                                 </div>
-                                <div class="profile_cand_name"><i class="mdi mdi-clock fa-sm pr-2"
-                                                                  aria-hidden="true"></i> Plan Expire :
-                                    {{$active->deactivated_at}}
+                                <div class="profile_cand_name"><i class="mdi mdi-clock fa-sm pr-2" aria-hidden="true"></i>
+                                    Plan Expire :
+                                    {{ $active->deactivated_at }}
                                 </div>
                                 <div class="profile_cand_name"><i class="mdi mdi-contacts fa-sm pr-2"
-                                                                  aria-hidden="true"></i>Contact Left
-                                    : {{isset($contact)?$contact->contact_left:'0'}}
+                                        aria-hidden="true"></i>Contact Left
+                                    : {{ isset($contact) ? $contact->contact_left : '0' }}
                                 </div>
                             </div>
                         @endif
                     @endif
                     <div class="search_filter_head">Refine Your Search</div>
                     <div class="refine_search_box style-scroll">
-                        <form action="{{url('search_side')}}" enctype="multipart/form-data"
-                              method="post">
+                        <form action="{{ url('search_side') }}" enctype="multipart/form-data" method="post">
+                            @csrf
                             <div class="filter_box border_none">
                                 <label for="">Marital Status</label>
                                 <i class="mdi mdi-chevron-up" onclick="FilterShowHide(this);"></i>
                             </div>
                             <div class="filter_data_box">
-                                <input {{isset($_SESSION['marital_status'][0])?'checked':'checked'}} type="checkbox"
-                                       class="search_filter" name="marital_status[]"
-                                       value="Never Married">
+                                <input {{ isset($_SESSION['marital_status'][0]) ? 'checked' : 'checked' }}
+                                    type="checkbox" class="search_filter" name="marital_status[]" value="Never Married">
                                 &nbsp;&nbsp;<label class="label-checkbox">Never Married</label><br>
-                                <input {{isset($_SESSION['marital_status'][1])?'checked':''}} type="checkbox"
-                                       class="search_filter" name="marital_status[]" value="Divorced">
+                                <input {{ isset($_SESSION['marital_status'][1]) ? 'checked' : '' }} type="checkbox"
+                                    class="search_filter" name="marital_status[]" value="Divorced">
                                 &nbsp;&nbsp;<label class="label-checkbox">Divorced</label><br>
-                                <input {{isset($_SESSION['marital_status'][2])?'checked':''}} type="checkbox"
-                                       class="search_filter" name="marital_status[]" value="Widowed">
+                                <input {{ isset($_SESSION['marital_status'][2]) ? 'checked' : '' }} type="checkbox"
+                                    class="search_filter" name="marital_status[]" value="Widowed">
                                 &nbsp;&nbsp;<label class="label-checkbox">Widowed</label><br>
-                                <input {{isset($_SESSION['marital_status'][3])?'checked':''}} type="checkbox"
-                                       class="search_filter" name="marital_status[]" value="Separated">
+                                <input {{ isset($_SESSION['marital_status'][3]) ? 'checked' : '' }} type="checkbox"
+                                    class="search_filter" name="marital_status[]" value="Separated">
                                 &nbsp;&nbsp;<label class="label-checkbox">Separated</label><br>
                             </div>
                             <div class="filter_box">
@@ -320,7 +319,7 @@ $today = \Carbon\Carbon::now()->format('Y-m-d');
                             </div>
                             <div class="filter_data_box">
                                 <div class="age_filterbox">
-                                    <select name="physical"  class="typeDD" style="width:100%">
+                                    <select name="physical" class="typeDD" style="width:100%">
                                         <option selected value="Normal">Normal</option>
                                         <option value="Physically challenged">Physically challenged</option>
                                         <option value="dont know">Doesn't Matter</option>
@@ -329,122 +328,122 @@ $today = \Carbon\Carbon::now()->format('Y-m-d');
                             </div>
 
 
-                            {{--<div class="filter_box">--}}
-                            {{--<label for="">Height</label>--}}
-                            {{--<i class="mdi mdi-chevron-up" onclick="FilterShowHide(this);"></i>--}}
-                            {{--</div>--}}
-                            {{--<div class="filter_data_box">--}}
-                            {{--<div class="age_filterbox">--}}
-                            {{--<div class="row form-group">--}}
-                            {{--<div class="col-sm-1">--}}
-                            {{--From--}}
-                            {{--</div>--}}
-                            {{--<div class="col-sm-5">--}}
-                            {{--<select name="p_heightfrom" id="Partner_heightfromid"--}}
-                            {{--class="form-control txt_wizard">--}}
-                            {{--<option selected="selected" value="3ft.5in-105cm">3ft.5in-105cm</option>--}}
-                            {{--<option value="3ft.6in-107cm">3ft.6in-107cm</option>--}}
-                            {{--<option value="3ft.7in-110cm">3ft.7in-110cm</option>--}}
-                            {{--<option value="3ft.8in-112cm">3ft.8in-112cm</option>--}}
-                            {{--<option value="3ft.9in-114cm">3ft.9in-114cm</option>--}}
-                            {{--<option value="3ft.10in-117cm">3ft.10in-117cm</option>--}}
-                            {{--<option value="3ft.11in-119cm">3ft.11in-119cm</option>--}}
-                            {{--<option value="4ft-122cm">4ft-122cm</option>--}}
-                            {{--<option value="4ft.1in-124cm">4ft.1in-124cm</option>--}}
-                            {{--<option value="4ft.2in-127cm">4ft.2in-127cm</option>--}}
-                            {{--<option value="4ft.3in-129cm">4ft.3in-129cm</option>--}}
-                            {{--<option value="4ft.4in-132cm">4ft.4in-132cm</option>--}}
-                            {{--<option value="4ft.5in-134cm">4ft.5in-134cm</option>--}}
-                            {{--<option value="4ft.6in-137cm">4ft.6in-137cm</option>--}}
-                            {{--<option value="4ft.7in-139cm">4ft.7in-139cm</option>--}}
-                            {{--<option value="4ft.8in-142cm">4ft.8in-142cm</option>--}}
-                            {{--<option value="4ft.9in-144cm">4ft.9in-144cm</option>--}}
-                            {{--<option value="4ft.10in-147cm">4ft.10in-147cm</option>--}}
-                            {{--<option value="4ft.11in-149cm">4ft.11in-149cm</option>--}}
-                            {{--<option value="5ft-151cm">5ft-151cm</option>--}}
-                            {{--<option value="5ft.1in-154cm">5ft.1in-154cm</option>--}}
-                            {{--<option value="5ft.2in-157cm">5ft.2in-157cm</option>--}}
-                            {{--<option value="5ft.3in-160cm">5ft.3in-160cm</option>--}}
-                            {{--<option value="5ft.4in-162cm">5ft.4in-162cm</option>--}}
-                            {{--<option value="5ft.5in-165cm">5ft.5in-165cm</option>--}}
-                            {{--<option value="5ft.6in-167cm">5ft.6in-167cm</option>--}}
-                            {{--<option value="5ft.7in-170cm">5ft.7in-170cm</option>--}}
-                            {{--<option value="5ft.8in-172cm">5ft.8in-172cm</option>--}}
-                            {{--<option value="5ft 9in-175cm</">5ft 9in-175cm</option>--}}
-                            {{--<option value="5ft.10in-177cm">5ft.10in-177cm</option>--}}
-                            {{--<option value="5ft.11in-180cm">5ft.11in-180cm</option>--}}
-                            {{--<option value="6ft-182cm">6ft-182cm</option>--}}
-                            {{--<option value="6ft.1in-185cm">6ft.1in-185cm</option>--}}
-                            {{--<option value="6ft.1in-185cm">6ft.1in-185cm</option>--}}
-                            {{--<option value="6ft.2in-187cm">6ft.2in-187cm</option>--}}
-                            {{--<option value="6ft.3in-190cm">6ft.3in-190cm</option>--}}
-                            {{--<option value="6ft.4in-193cm">6ft.4in-193cm</option>--}}
-                            {{--<option value="6ft.5in-196cm">6ft.5in-196cm</option>--}}
-                            {{--<option value="6ft.6in-198cm">6ft.6in-198cm</option>--}}
-                            {{--<option value="6ft.7in-200cm">6ft.7in-200cm</option>--}}
-                            {{--<option value="6ft.8in-203cm">6ft.8in-203cm</option>--}}
-                            {{--<option value="6ft.9in-206cm">6ft.9in-206cm</option>--}}
-                            {{--<option value="6ft.10in-208cm">6ft.10in-208cm</option>--}}
-                            {{--<option value="6ft.11in-211cm">6ft.11in-211cm</option>--}}
-                            {{--</select>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-sm-1">--}}
-                            {{--To--}}
-                            {{--</div>--}}
-                            {{--<div class="col-sm-5">--}}
-                            {{--<select name="p_heightto" id="Partner_heighttoid"--}}
-                            {{--class="form-control drop_edit txt_wizard">--}}
-                            {{--<option>- Select Height To -</option>--}}
-                            {{--<option value="3ft.5in-105cm">3ft.5in-105cm</option>--}}
-                            {{--<option value="3ft.6in-107cm">3ft.6in-107cm</option>--}}
-                            {{--<option value="3ft.7in-110cm">3ft.7in-110cm</option>--}}
-                            {{--<option value="3ft.8in-112cm">3ft.8in-112cm</option>--}}
-                            {{--<option value="3ft.9in-114cm">3ft.9in-114cm</option>--}}
-                            {{--<option value="3ft.10in-117cm">3ft.10in-117cm</option>--}}
-                            {{--<option value="3ft.11in-119cm">3ft.11in-119cm</option>--}}
-                            {{--<option value="4ft-122cm">4ft-122cm</option>--}}
-                            {{--<option value="4ft.1in-124cm">4ft.1in-124cm</option>--}}
-                            {{--<option value="4ft.2in-127cm">4ft.2in-127cm</option>--}}
-                            {{--<option value="4ft.3in-129cm">4ft.3in-129cm</option>--}}
-                            {{--<option value="4ft.4in-132cm">4ft.4in-132cm</option>--}}
-                            {{--<option value="4ft.5in-134cm">4ft.5in-134cm</option>--}}
-                            {{--<option value="4ft.6in-137cm">4ft.6in-137cm</option>--}}
-                            {{--<option value="4ft.7in-139cm">4ft.7in-139cm</option>--}}
-                            {{--<option value="4ft.8in-142cm">4ft.8in-142cm</option>--}}
-                            {{--<option value="4ft.9in-144cm">4ft.9in-144cm</option>--}}
-                            {{--<option value="4ft.10in-147cm">4ft.10in-147cm</option>--}}
-                            {{--<option value="4ft.11in-149cm">4ft.11in-149cm</option>--}}
-                            {{--<option value="5ft-151cm">5ft-151cm</option>--}}
-                            {{--<option value="5ft.1in-154cm">5ft.1in-154cm</option>--}}
-                            {{--<option value="5ft.2in-157cm">5ft.2in-157cm</option>--}}
-                            {{--<option value="5ft.3in-160cm">5ft.3in-160cm</option>--}}
-                            {{--<option value="5ft.4in-162cm">5ft.4in-162cm</option>--}}
-                            {{--<option value="5ft.5in-165cm">5ft.5in-165cm</option>--}}
-                            {{--<option value="5ft.6in-167cm">5ft.6in-167cm</option>--}}
-                            {{--<option value="5ft.7in-170cm">5ft.7in-170cm</option>--}}
-                            {{--<option value="5ft.8in-172cm">5ft.8in-172cm</option>--}}
-                            {{--<option selected="selected" value="5ft 9in-175cm</">5ft 9in-175cm--}}
-                            {{--</option>--}}
-                            {{--<option value="5ft.10in-177cm">5ft.10in-177cm</option>--}}
-                            {{--<option value="5ft.11in-180cm">5ft.11in-180cm</option>--}}
-                            {{--<option value="6ft-182cm">6ft-182cm</option>--}}
-                            {{--<option value="6ft.1in-185cm">6ft.1in-185cm</option>--}}
-                            {{--<option value="6ft.1in-185cm">6ft.1in-185cm</option>--}}
-                            {{--<option value="6ft.2in-187cm">6ft.2in-187cm</option>--}}
-                            {{--<option value="6ft.3in-190cm">6ft.3in-190cm</option>--}}
-                            {{--<option value="6ft.4in-193cm">6ft.4in-193cm</option>--}}
-                            {{--<option value="6ft.5in-196cm">6ft.5in-196cm</option>--}}
-                            {{--<option value="6ft.6in-198cm">6ft.6in-198cm</option>--}}
-                            {{--<option value="6ft.7in-200cm">6ft.7in-200cm</option>--}}
-                            {{--<option value="6ft.8in-203cm">6ft.8in-203cm</option>--}}
-                            {{--<option value="6ft.9in-206cm">6ft.9in-206cm</option>--}}
-                            {{--<option value="6ft.10in-208cm">6ft.10in-208cm</option>--}}
-                            {{--<option value="6ft.11in-211cm">6ft.11in-211cm</option>--}}
-                            {{--</select>--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
+                            {{-- <div class="filter_box"> --}}
+                            {{-- <label for="">Height</label> --}}
+                            {{-- <i class="mdi mdi-chevron-up" onclick="FilterShowHide(this);"></i> --}}
+                            {{-- </div> --}}
+                            {{-- <div class="filter_data_box"> --}}
+                            {{-- <div class="age_filterbox"> --}}
+                            {{-- <div class="row form-group"> --}}
+                            {{-- <div class="col-sm-1"> --}}
+                            {{-- From --}}
+                            {{-- </div> --}}
+                            {{-- <div class="col-sm-5"> --}}
+                            {{-- <select name="p_heightfrom" id="Partner_heightfromid" --}}
+                            {{-- class="form-control txt_wizard"> --}}
+                            {{-- <option selected="selected" value="3ft.5in-105cm">3ft.5in-105cm</option> --}}
+                            {{-- <option value="3ft.6in-107cm">3ft.6in-107cm</option> --}}
+                            {{-- <option value="3ft.7in-110cm">3ft.7in-110cm</option> --}}
+                            {{-- <option value="3ft.8in-112cm">3ft.8in-112cm</option> --}}
+                            {{-- <option value="3ft.9in-114cm">3ft.9in-114cm</option> --}}
+                            {{-- <option value="3ft.10in-117cm">3ft.10in-117cm</option> --}}
+                            {{-- <option value="3ft.11in-119cm">3ft.11in-119cm</option> --}}
+                            {{-- <option value="4ft-122cm">4ft-122cm</option> --}}
+                            {{-- <option value="4ft.1in-124cm">4ft.1in-124cm</option> --}}
+                            {{-- <option value="4ft.2in-127cm">4ft.2in-127cm</option> --}}
+                            {{-- <option value="4ft.3in-129cm">4ft.3in-129cm</option> --}}
+                            {{-- <option value="4ft.4in-132cm">4ft.4in-132cm</option> --}}
+                            {{-- <option value="4ft.5in-134cm">4ft.5in-134cm</option> --}}
+                            {{-- <option value="4ft.6in-137cm">4ft.6in-137cm</option> --}}
+                            {{-- <option value="4ft.7in-139cm">4ft.7in-139cm</option> --}}
+                            {{-- <option value="4ft.8in-142cm">4ft.8in-142cm</option> --}}
+                            {{-- <option value="4ft.9in-144cm">4ft.9in-144cm</option> --}}
+                            {{-- <option value="4ft.10in-147cm">4ft.10in-147cm</option> --}}
+                            {{-- <option value="4ft.11in-149cm">4ft.11in-149cm</option> --}}
+                            {{-- <option value="5ft-151cm">5ft-151cm</option> --}}
+                            {{-- <option value="5ft.1in-154cm">5ft.1in-154cm</option> --}}
+                            {{-- <option value="5ft.2in-157cm">5ft.2in-157cm</option> --}}
+                            {{-- <option value="5ft.3in-160cm">5ft.3in-160cm</option> --}}
+                            {{-- <option value="5ft.4in-162cm">5ft.4in-162cm</option> --}}
+                            {{-- <option value="5ft.5in-165cm">5ft.5in-165cm</option> --}}
+                            {{-- <option value="5ft.6in-167cm">5ft.6in-167cm</option> --}}
+                            {{-- <option value="5ft.7in-170cm">5ft.7in-170cm</option> --}}
+                            {{-- <option value="5ft.8in-172cm">5ft.8in-172cm</option> --}}
+                            {{-- <option value="5ft 9in-175cm</">5ft 9in-175cm</option> --}}
+                            {{-- <option value="5ft.10in-177cm">5ft.10in-177cm</option> --}}
+                            {{-- <option value="5ft.11in-180cm">5ft.11in-180cm</option> --}}
+                            {{-- <option value="6ft-182cm">6ft-182cm</option> --}}
+                            {{-- <option value="6ft.1in-185cm">6ft.1in-185cm</option> --}}
+                            {{-- <option value="6ft.1in-185cm">6ft.1in-185cm</option> --}}
+                            {{-- <option value="6ft.2in-187cm">6ft.2in-187cm</option> --}}
+                            {{-- <option value="6ft.3in-190cm">6ft.3in-190cm</option> --}}
+                            {{-- <option value="6ft.4in-193cm">6ft.4in-193cm</option> --}}
+                            {{-- <option value="6ft.5in-196cm">6ft.5in-196cm</option> --}}
+                            {{-- <option value="6ft.6in-198cm">6ft.6in-198cm</option> --}}
+                            {{-- <option value="6ft.7in-200cm">6ft.7in-200cm</option> --}}
+                            {{-- <option value="6ft.8in-203cm">6ft.8in-203cm</option> --}}
+                            {{-- <option value="6ft.9in-206cm">6ft.9in-206cm</option> --}}
+                            {{-- <option value="6ft.10in-208cm">6ft.10in-208cm</option> --}}
+                            {{-- <option value="6ft.11in-211cm">6ft.11in-211cm</option> --}}
+                            {{-- </select> --}}
+                            {{-- </div> --}}
+                            {{-- <div class="col-sm-1"> --}}
+                            {{-- To --}}
+                            {{-- </div> --}}
+                            {{-- <div class="col-sm-5"> --}}
+                            {{-- <select name="p_heightto" id="Partner_heighttoid" --}}
+                            {{-- class="form-control drop_edit txt_wizard"> --}}
+                            {{-- <option>- Select Height To -</option> --}}
+                            {{-- <option value="3ft.5in-105cm">3ft.5in-105cm</option> --}}
+                            {{-- <option value="3ft.6in-107cm">3ft.6in-107cm</option> --}}
+                            {{-- <option value="3ft.7in-110cm">3ft.7in-110cm</option> --}}
+                            {{-- <option value="3ft.8in-112cm">3ft.8in-112cm</option> --}}
+                            {{-- <option value="3ft.9in-114cm">3ft.9in-114cm</option> --}}
+                            {{-- <option value="3ft.10in-117cm">3ft.10in-117cm</option> --}}
+                            {{-- <option value="3ft.11in-119cm">3ft.11in-119cm</option> --}}
+                            {{-- <option value="4ft-122cm">4ft-122cm</option> --}}
+                            {{-- <option value="4ft.1in-124cm">4ft.1in-124cm</option> --}}
+                            {{-- <option value="4ft.2in-127cm">4ft.2in-127cm</option> --}}
+                            {{-- <option value="4ft.3in-129cm">4ft.3in-129cm</option> --}}
+                            {{-- <option value="4ft.4in-132cm">4ft.4in-132cm</option> --}}
+                            {{-- <option value="4ft.5in-134cm">4ft.5in-134cm</option> --}}
+                            {{-- <option value="4ft.6in-137cm">4ft.6in-137cm</option> --}}
+                            {{-- <option value="4ft.7in-139cm">4ft.7in-139cm</option> --}}
+                            {{-- <option value="4ft.8in-142cm">4ft.8in-142cm</option> --}}
+                            {{-- <option value="4ft.9in-144cm">4ft.9in-144cm</option> --}}
+                            {{-- <option value="4ft.10in-147cm">4ft.10in-147cm</option> --}}
+                            {{-- <option value="4ft.11in-149cm">4ft.11in-149cm</option> --}}
+                            {{-- <option value="5ft-151cm">5ft-151cm</option> --}}
+                            {{-- <option value="5ft.1in-154cm">5ft.1in-154cm</option> --}}
+                            {{-- <option value="5ft.2in-157cm">5ft.2in-157cm</option> --}}
+                            {{-- <option value="5ft.3in-160cm">5ft.3in-160cm</option> --}}
+                            {{-- <option value="5ft.4in-162cm">5ft.4in-162cm</option> --}}
+                            {{-- <option value="5ft.5in-165cm">5ft.5in-165cm</option> --}}
+                            {{-- <option value="5ft.6in-167cm">5ft.6in-167cm</option> --}}
+                            {{-- <option value="5ft.7in-170cm">5ft.7in-170cm</option> --}}
+                            {{-- <option value="5ft.8in-172cm">5ft.8in-172cm</option> --}}
+                            {{-- <option selected="selected" value="5ft 9in-175cm</">5ft 9in-175cm --}}
+                            {{-- </option> --}}
+                            {{-- <option value="5ft.10in-177cm">5ft.10in-177cm</option> --}}
+                            {{-- <option value="5ft.11in-180cm">5ft.11in-180cm</option> --}}
+                            {{-- <option value="6ft-182cm">6ft-182cm</option> --}}
+                            {{-- <option value="6ft.1in-185cm">6ft.1in-185cm</option> --}}
+                            {{-- <option value="6ft.1in-185cm">6ft.1in-185cm</option> --}}
+                            {{-- <option value="6ft.2in-187cm">6ft.2in-187cm</option> --}}
+                            {{-- <option value="6ft.3in-190cm">6ft.3in-190cm</option> --}}
+                            {{-- <option value="6ft.4in-193cm">6ft.4in-193cm</option> --}}
+                            {{-- <option value="6ft.5in-196cm">6ft.5in-196cm</option> --}}
+                            {{-- <option value="6ft.6in-198cm">6ft.6in-198cm</option> --}}
+                            {{-- <option value="6ft.7in-200cm">6ft.7in-200cm</option> --}}
+                            {{-- <option value="6ft.8in-203cm">6ft.8in-203cm</option> --}}
+                            {{-- <option value="6ft.9in-206cm">6ft.9in-206cm</option> --}}
+                            {{-- <option value="6ft.10in-208cm">6ft.10in-208cm</option> --}}
+                            {{-- <option value="6ft.11in-211cm">6ft.11in-211cm</option> --}}
+                            {{-- </select> --}}
+                            {{-- </div> --}}
+                            {{-- </div> --}}
+                            {{-- </div> --}}
+                            {{-- </div> --}}
 
                             <div class="filter_box">
                                 <label for="">Caste</label>
@@ -664,7 +663,7 @@ $today = \Carbon\Carbon::now()->format('Y-m-d');
                                         <option value="Kuruba">Kuruba</option>
                                         <option value="Kuruhina Shetty">Kuruhina Shetty</option>
                                         <option value="Kurumbar">Kurumbar</option>
-                                       <option value="Kushwaha">Kushwaha</option>
+                                        <option value="Kushwaha">Kushwaha</option>
                                         <option value="Kutchi">Kutchi</option>
                                         <option value="Lambadi">Lambadi</option>
                                         <option value="Leva patel">Leva patel</option>
@@ -998,8 +997,10 @@ $today = \Carbon\Carbon::now()->format('Y-m-d');
 
 
                             @php
-                                $states =  \Illuminate\Support\Facades\DB::select("SELECT DISTINCT state FROM `statelist`");
-                                    $cities =  \Illuminate\Support\Facades\DB::table('statelist')->distinct('state')->get();
+                                $states = \Illuminate\Support\Facades\DB::select('SELECT DISTINCT state FROM `statelist`');
+                                $cities = \Illuminate\Support\Facades\DB::table('statelist')
+                                    ->distinct('state')
+                                    ->get();
                             @endphp
                             <div class="filter_box">
                                 <label for="">State</label>
@@ -1008,8 +1009,8 @@ $today = \Carbon\Carbon::now()->format('Y-m-d');
                             <div class="filter_data_box">
                                 <select name="state[]" class="typeDD" style="width:100%" id="state" multiple>
                                     <option selected="selected" value="Any">Doesn't Matter</option>
-                                    @foreach($states as $state)
-                                        <option value="{{$state->state}}">{{$state->state}}</option>
+                                    @foreach ($states as $state)
+                                        <option value="{{ $state->state }}">{{ $state->state }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -1020,7 +1021,8 @@ $today = \Carbon\Carbon::now()->format('Y-m-d');
                             </div>
                             <div class="filter_data_box">
                                 <div class="age_filterbox">
-                                    <select  name="anual_income[]" id="anual_income" class="typeDD" style="width:100%" multiple>
+                                    <select name="anual_income[]" id="anual_income" class="typeDD"
+                                        style="width:100%" multiple>
                                         <option selected="selected" value="Any">Doesn't Matter</option>
                                         <option>Nill</option>
                                         <option>Under Rs.50,000</option>
@@ -1071,7 +1073,7 @@ $today = \Carbon\Carbon::now()->format('Y-m-d');
                             </div>
                             <div class="filter_data_box">
                                 <select name="diet" id="Diet_Partner" class="typeDD" style="width:100%">
-                                    {{--<option selected="selected" value="Any">Any</option>--}}
+                                    {{-- <option selected="selected" value="Any">Any</option> --}}
                                     <option value="Not mentioned">Doesn't Matter</option>
                                     <option value="Vegetarian">Vegetarian</option>
                                     <option value="Non vegetarian">Non Vegetarian</option>
@@ -1083,8 +1085,8 @@ $today = \Carbon\Carbon::now()->format('Y-m-d');
                                 <i class="mdi mdi-chevron-up" onclick="FilterShowHide(this);"></i>
                             </div>
                             <div class="filter_data_box">
-                                <select name="family_income[]" id="family_income"
-                                        class="typeDD" style="width:100%" multiple>
+                                <select name="family_income[]" id="family_income" class="typeDD" style="width:100%"
+                                    multiple>
                                     <option selected="selected" value="Any">Doesn't Matter</option>
                                     <option value="Upto INR 1 Lakh" label="Upto INR 1 Lakh">Upto INR 1 Lakh</option>
                                     <option value="INR 1 Lakh to 2 Lakh" label="INR 1 Lakh to 2 Lakh">INR 1 Lakh to
@@ -1093,8 +1095,7 @@ $today = \Carbon\Carbon::now()->format('Y-m-d');
                                     <option value="INR 2 Lakh to 4 Lakh" label="INR 2 Lakh to 4 Lakh">INR 2 Lakh to
                                         4 Lakh
                                     </option>
-                                    <option value="INR 4 Lakh to 7 Lakh" label="INR 4 Lakh to 7 Lakh"
-                                    >INR 4 Lakh to 7 Lakh
+                                    <option value="INR 4 Lakh to 7 Lakh" label="INR 4 Lakh to 7 Lakh">INR 4 Lakh to 7 Lakh
                                     </option>
                                     <option value="INR 7 Lakh to 10 Lakh" label="INR 7 Lakh to 10 Lakh">INR 7 Lakh
                                         to 10 Lakh
@@ -1128,30 +1129,30 @@ $today = \Carbon\Carbon::now()->format('Y-m-d');
                                 </select>
                             </div>
 
-                            {{--<div class="filter_box">--}}
-                            {{--<label for="">Drinking Habit</label>--}}
-                            {{--<i class="mdi mdi-chevron-up" onclick="FilterShowHide(this);"></i>--}}
-                            {{--</div>--}}
-                            {{--<div class="filter_data_box">--}}
-                            {{--<select name="drinking_habit" class="form-control requiredDD txt_wizard">--}}
-                            {{--<option selected="selected" value="Any">Any</option>--}}
-                            {{--<option value="1">Yes</option>--}}
-                            {{--<option value="0">No</option>--}}
-                            {{--</select>--}}
-                            {{--</div>--}}
-                            {{--<div class="filter_box">--}}
-                            {{--<label for="">Smoking Habit</label>--}}
-                            {{--<i class="mdi mdi-chevron-up" onclick="FilterShowHide(this);"></i>--}}
-                            {{--</div>--}}
-                            {{--<div class="filter_data_box">--}}
-                            {{--<select name="smoking_habit" class="form-control requiredDD txt_wizard">--}}
-                            {{--<option selected="selected" value="Any">Any</option>--}}
-                            {{--<option value="1">Yes</option>--}}
-                            {{--<option value="0">No</option>--}}
-                            {{--</select>--}}
-                            {{--</div>--}}
+                            {{-- <div class="filter_box"> --}}
+                            {{-- <label for="">Drinking Habit</label> --}}
+                            {{-- <i class="mdi mdi-chevron-up" onclick="FilterShowHide(this);"></i> --}}
+                            {{-- </div> --}}
+                            {{-- <div class="filter_data_box"> --}}
+                            {{-- <select name="drinking_habit" class="form-control requiredDD txt_wizard"> --}}
+                            {{-- <option selected="selected" value="Any">Any</option> --}}
+                            {{-- <option value="1">Yes</option> --}}
+                            {{-- <option value="0">No</option> --}}
+                            {{-- </select> --}}
+                            {{-- </div> --}}
+                            {{-- <div class="filter_box"> --}}
+                            {{-- <label for="">Smoking Habit</label> --}}
+                            {{-- <i class="mdi mdi-chevron-up" onclick="FilterShowHide(this);"></i> --}}
+                            {{-- </div> --}}
+                            {{-- <div class="filter_data_box"> --}}
+                            {{-- <select name="smoking_habit" class="form-control requiredDD txt_wizard"> --}}
+                            {{-- <option selected="selected" value="Any">Any</option> --}}
+                            {{-- <option value="1">Yes</option> --}}
+                            {{-- <option value="0">No</option> --}}
+                            {{-- </select> --}}
+                            {{-- </div> --}}
                             <div class="filter_box">
-                                @if(!isset($_SESSION['user_master']))
+                                @if (!isset($_SESSION['user_master']))
                                     <button type="button" onclick="search_profile(this)" class="btn btn-sm btn-primary">
                                         Search
                                     </button>
@@ -1169,270 +1170,297 @@ $today = \Carbon\Carbon::now()->format('Y-m-d');
                 </div>
                 <div class="cand_list_containner" id="candidate_list">
 
-                    @if(count($users)>0)
-                        @if(!isset($_SESSION['user_master']))
-                            @foreach($users as $search_user)
+                    @if (count($users) > 0)
+                        @if (!isset($_SESSION['user_master']))
+                            @foreach ($users as $search_user)
                                 @php
                                     $image = \App\Images::find($search_user->id);
                                 @endphp
                                 <div class="cand_box">
                                     <div class="cand_imgbox">
-                                        @if($search_user->is_show_pic == '1')
-                                            @if(isset($image->pic1) && file_exists($image->pic1))
-                                                <img class="cand_img" src="{{url('').'/'.$image->pic1}}"/>
+                                        @if ($search_user->is_show_pic == '1')
+                                            @if (isset($image->pic1) && file_exists($image->pic1))
+                                                <img class="cand_img" src="{{ url('') . '/' . $image->pic1 }}" />
                                             @else
-                                                @if($search_user->gender == 'male')
-                                                    <img class="cand_img" src="{{url('images/male.png')}}"/>
+                                                @if ($search_user->gender == 'male')
+                                                    <img class="cand_img" src="{{ url('images/male.png') }}" />
                                                 @else
-                                                    <img class="cand_img" src="{{url('images/female.png')}}"/>
+                                                    <img class="cand_img" src="{{ url('images/female.png') }}" />
                                                 @endif
                                             @endif
                                         @else
                                             <img data-toggle="tooltip" data-placement="right"
-                                                 title="Send interest to view profile" data-content="{{$search_user->id}}" onclick="view_contact(this)"
-                                                 class="cand_img" src="{{url('images/female_large_protected.jpg')}}"/>
+                                                title="Send interest to view profile"
+                                                data-content="{{ $search_user->id }}" onclick="view_contact(this)"
+                                                class="cand_img"
+                                                src="{{ url('images/female_large_protected.jpg') }}" />
                                         @endif
 
                                     </div>
                                     <div class="cand_details">
                                         <div class="cand_name" style="cursor: pointer;"
-                                             data-content="{{$search_user->id}}" onclick="view_contact(this)">
-                                            {{$search_user->name}}{{'(MM-'.$search_user->id.')'}}{{--<span
+                                            data-content="{{ $search_user->id }}" onclick="view_contact(this)">
+                                            {{ $search_user->name }}{{ '(MM-' . $search_user->id . ')' }}{{-- <span
                                                     data-toggle="tooltip" data-placement="right"
                                                     title="Verified Profile By Aadhar"
-                                                    class="glyphicon glyphicon-ok icon-success"></span>--}}</div>
+                                                    class="glyphicon glyphicon-ok icon-success"></span> --}}
+                                        </div>
                                         <ul class="cand_info">
-                                            <li>{{isset($search_user->age)?$search_user->age:'Not Specified'}}
+                                            <li>{{ isset($search_user->age) ? $search_user->age : 'Not Specified' }}
                                                 Years
                                             </li>
 
 
-                                            <li>{{$search_user->height}}</li>
-                                            <li>{{isset($search_user->state)?$search_user->state:'-'}}</li>
+                                            <li>{{ $search_user->height }}</li>
+                                            <li>{{ isset($search_user->state) ? $search_user->state : '-' }}</li>
 
 
-                                            <li>{{isset($search_user->city)?$search_user->city:'Not Specified'}}</li>
+                                            <li>{{ isset($search_user->city) ? $search_user->city : 'Not Specified' }}
+                                            </li>
 
-                                            <li>{{isset($search_user->religion)?$search_user->religion:'Not Specified'}}</li>
+                                            <li>{{ isset($search_user->religion) ? $search_user->religion : 'Not Specified' }}
+                                            </li>
 
-                                            <li>{{isset($search_user->caste)?$search_user->caste:'Not Specified'}}</li>
+                                            <li>{{ isset($search_user->caste) ? $search_user->caste : 'Not Specified' }}
+                                            </li>
 
-                                            <li>{{isset($search_user->language)?$search_user->language:'Not Specified'}}</li>
-                                            <li>{{isset($search_user->occupation)?$search_user->occupation:'Not Specified'}}</li>
+                                            <li>{{ isset($search_user->language) ? $search_user->language : 'Not Specified' }}
+                                            </li>
+                                            <li>{{ isset($search_user->occupation) ? $search_user->occupation : 'Not Specified' }}
+                                            </li>
 
-                                            <li>{{isset($search_user->status)?$search_user->status:'Not Specified'}}</li>
-                                            <li>{{isset($search_user->salary)?$search_user->salary:'-'}}</li>
+                                            <li>{{ isset($search_user->status) ? $search_user->status : 'Not Specified' }}
+                                            </li>
+                                            <li>{{ isset($search_user->salary) ? $search_user->salary : '-' }}</li>
 
                                             <li data-toggle="tooltip" data-placement="bottom"
-                                                title="{{$search_user->education_detail}}">{{str_limit( $search_user->education,28)}}</li>
+                                                title="{{ $search_user->education_detail }}">
+                                                {{ \Illuminate\Support\Str::limit($search_user->education, 28) }}</li>
                                         </ul>
                                     </div>
                                     <div class="cand_btnbox">
                                         <div class="btn-group cand_btncontainner">
                                             <a style="cursor: pointer" class="popup_submitbtn btn-sm btn-primary"
-                                               data-content="{{$search_user->id}}" id="view_{{$search_user->id}}"
-                                               onclick="view_contact(this)"
-                                               href="#">View Profile
+                                                data-content="{{ $search_user->id }}" id="view_{{ $search_user->id }}"
+                                                onclick="view_contact(this)" href="#">View Profile
                                             </a>
                                         </div>
                                         <div class="btn-group cand_btncontainner">
-                                            <a href="#" data-content="{{$search_user->id}}"
-                                               id="send_{{$search_user->id}}"
-                                               onclick="send_interest(this)"
-                                               class="popup_submitbtn_send_without_lg btn-sm btn-success">
+                                            <a href="#" data-content="{{ $search_user->id }}"
+                                                id="send_{{ $search_user->id }}" onclick="send_interest(this)"
+                                                class="popup_submitbtn_send_without_lg btn-sm btn-success">
                                                 Send Interest</a>
                                         </div>
 
                                         <div class="btn-group cand_btncontainner">
-                                            <a href="#" data-content="{{$search_user->id}}"
-                                               id="view_{{$search_user->id}}" onclick="view_contact(this)"
-                                               class="popup_submitbtn_lv btn-sm upgrade_bg">View Contact</a>
+                                            <a href="#" data-content="{{ $search_user->id }}"
+                                                id="view_{{ $search_user->id }}" onclick="view_contact(this)"
+                                                class="popup_submitbtn_lv btn-sm upgrade_bg">View Contact</a>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
-                            {{ isset($u_paginat)? $u_paginat->links() : $users->links() }}
-
+                            {{ isset($u_paginat) ? $u_paginat->links() : $users->links() }}
                         @else
-                            @if(count($users)>0)
-                                @foreach($users as $search_user)
+                            @if (count($users) > 0)
+                                @foreach ($users as $search_user)
                                     @php
                                         $image = \App\Images::find($search_user->id);
                                     @endphp
                                     <div class="cand_box">
                                         <div class="cand_imgbox" style="cursor: pointer;"
-                                             onclick="location.href='{{url('view_profile').'/'.$search_user->id}}';">
-                                            @if($search_user->is_show_pic == '1')
-                                                @if(isset($image->pic1) && file_exists($image->pic1))
-                                                    <img class="cand_img" src="{{url('').'/'.$image->pic1}}"/>
+                                            onclick="location.href='{{ url('view_profile') . '/' . $search_user->id }}';">
+                                            @if ($search_user->is_show_pic == '1')
+                                                @if (isset($image->pic1) && file_exists($image->pic1))
+                                                    <img class="cand_img"
+                                                        src="{{ url('') . '/' . $image->pic1 }}" />
                                                 @else
-                                                    @if($search_user->gender == 'male')
-                                                        <img class="cand_img" src="{{url('images/male.png')}}"/>
+                                                    @if ($search_user->gender == 'male')
+                                                        <img class="cand_img"
+                                                            src="{{ url('images/male.png') }}" />
                                                     @else
-                                                        <img class="cand_img" src="{{url('images/female.png')}}"/>
+                                                        <img class="cand_img"
+                                                            src="{{ url('images/female.png') }}" />
                                                     @endif
                                                 @endif
                                             @else
-                                                <img class="cand_img" data-toggle="tooltip" data-placement="right" title="Send interest to view profile" src="{{url('images/female_large_protected.jpg')}}"/>
+                                                <img class="cand_img" data-toggle="tooltip" data-placement="right"
+                                                    title="Send interest to view profile"
+                                                    src="{{ url('images/female_large_protected.jpg') }}" />
                                             @endif
 
                                         </div>
                                         <div class="cand_details">
                                             <div class="cand_name" style="cursor: pointer;"
-                                                 onclick="location.href='{{url('view_profile').'/'.$search_user->id}}';">{{$search_user->name}}{{' (MM-'.$search_user->id.')'}}
-                                                {{--<span data-toggle="tooltip" data-placement="right"
+                                                onclick="location.href='{{ url('view_profile') . '/' . $search_user->id }}';">
+                                                {{ $search_user->name }}{{ ' (MM-' . $search_user->id . ')' }}
+                                                {{-- <span data-toggle="tooltip" data-placement="right"
                                                       title="Verified Profile By Aadhar"
-                                                      class="glyphicon glyphicon-ok icon-success"></span>--}}</div>
+                                                      class="glyphicon glyphicon-ok icon-success"></span> --}}</div>
                                             <ul class="cand_info">
                                                 @php
-                                                    $age = \Carbon\Carbon::parse($search_user->dob)->diff(\Carbon\Carbon::now('Asia/Kolkata'))->format('%y');
-
+                                                    $age = \Carbon\Carbon::parse($search_user->dob)
+                                                        ->diff(\Carbon\Carbon::now('Asia/Kolkata'))
+                                                        ->format('%y');
+                                                    
                                                 @endphp
-                                                <li>{{isset($age)?$age:'Not Specified'}}
+                                                <li>{{ isset($age) ? $age : 'Not Specified' }}
                                                     Years
                                                 </li>
 
 
-                                                <li>{{$search_user->height}}</li>
-                                                <li>{{isset($search_user->state)?$search_user->state:'-'}}</li>
+                                                <li>{{ $search_user->height }}</li>
+                                                <li>{{ isset($search_user->state) ? $search_user->state : '-' }}</li>
 
 
-                                                <li>{{isset($search_user->city)?$search_user->city:'Not Specified'}}</li>
+                                                <li>{{ isset($search_user->city) ? $search_user->city : 'Not Specified' }}
+                                                </li>
 
-                                                <li>{{isset($search_user->religion)?$search_user->religion:'Not Specified'}}</li>
+                                                <li>{{ isset($search_user->religion) ? $search_user->religion : 'Not Specified' }}
+                                                </li>
 
-                                                <li>{{isset($search_user->caste)?$search_user->caste:'Not Specified'}}</li>
+                                                <li>{{ isset($search_user->caste) ? $search_user->caste : 'Not Specified' }}
+                                                </li>
 
-                                                <li>{{isset($search_user->language)?$search_user->language:'Not Specified'}}</li>
-                                                <li>{{isset($search_user->salary)?$search_user->salary:'-'}}</li>
+                                                <li>{{ isset($search_user->language) ? $search_user->language : 'Not Specified' }}
+                                                </li>
+                                                <li>{{ isset($search_user->salary) ? $search_user->salary : '-' }}</li>
 
-                                                <li>{{isset($search_user->status)?$search_user->status:'Not Specified'}}</li>
+                                                <li>{{ isset($search_user->status) ? $search_user->status : 'Not Specified' }}
+                                                </li>
                                                 <li data-toggle="tooltip" data-placement="bottom"
-                                                    title="{{$search_user->education_detail}}">{{str_limit( $search_user->education,28)}}</li>
+                                                    title="{{ $search_user->education_detail }}">
+                                                    {{ \Illuminate\Support\Str::limit($search_user->education, 28) }}
+                                                </li>
 
                                                 <li data-toggle="tooltip" data-placement="bottom"
-                                                    title="{{$search_user->occupation_detail}}">{{ $search_user->occupation}}</li>
+                                                    title="{{ $search_user->occupation_detail }}">
+                                                    {{ $search_user->occupation }}</li>
                                             </ul>
                                         </div>
                                         <div class="cand_btnbox">
 
                                             <div class="">
-                                                {{--<button type="button" class="btn btn-success btn-xs res_btn"><span--}}
-                                                {{--class="mdi mdi-heart"></span></button>--}}
-                                                {{--<button type="button" class="btn btn-success btn-xs res_btn">Send Interest--}}
-                                                {{--</button>--}}
+                                                {{-- <button type="button" class="btn btn-success btn-xs res_btn"><span --}}
+                                                {{-- class="mdi mdi-heart"></span></button> --}}
+                                                {{-- <button type="button" class="btn btn-success btn-xs res_btn">Send Interest --}}
+                                                {{-- </button> --}}
                                                 <a target="_blank" class="popup_submitbtn_view btn-sm btn-primary"
-                                                   href="{{url('view_profile').'/'.$search_user->id}}">View Profile
-                                                    {{--<button type="button" class="btn btn-primary btn-xs res_btn"><span--}}
-                                                    {{--class="mdi mdi-eye"></span></button>--}}
-                                                    {{--<button type="button" class="btn btn-primary btn-xs res_btn">View Profile--}}
-                                                    {{--</button>--}}
+                                                    href="{{ url('view_profile') . '/' . $search_user->id }}">View
+                                                    Profile
+                                                    {{-- <button type="button" class="btn btn-primary btn-xs res_btn"><span --}}
+                                                    {{-- class="mdi mdi-eye"></span></button> --}}
+                                                    {{-- <button type="button" class="btn btn-primary btn-xs res_btn">View Profile --}}
+                                                    {{-- </button> --}}
                                                 </a>
                                             </div>
 
                                             @php
                                                 $session_user = $_SESSION['user_master']->id;
-                                                 $queryResult = \Illuminate\Support\Facades\DB::select("call GetFriendType($session_user,$search_user->id)");
-                                                  $result = collect($queryResult);
+                                                $queryResult = \Illuminate\Support\Facades\DB::select("call GetFriendType($session_user,$search_user->id)");
+                                                $result = collect($queryResult);
                                             @endphp
-                                            @if($result[0]->status_ == 'NULL')
-                                                {{--<div class="btn-group cand_btncontainner"--}}
-                                                {{--data-content="{{$search_user->id}}"--}}
-                                                {{--id="send_{{$search_user->id}}" onclick="send_interest(this)">--}}
-                                                {{--<button type="button" class="btn btn-success btn-xs res_btn"><span--}}
-                                                {{--class="mdi mdi-heart"></span></button>--}}
-                                                {{--<button type="button" class="btn btn-success btn-xs res_btn">Send--}}
-                                                {{--Interest--}}
-                                                {{--</button>--}}
-                                                {{--</div>--}}
+                                            @if ($result[0]->status_ == 'NULL')
+                                                {{-- <div class="btn-group cand_btncontainner" --}}
+                                                {{-- data-content="{{$search_user->id}}" --}}
+                                                {{-- id="send_{{$search_user->id}}" onclick="send_interest(this)"> --}}
+                                                {{-- <button type="button" class="btn btn-success btn-xs res_btn"><span --}}
+                                                {{-- class="mdi mdi-heart"></span></button> --}}
+                                                {{-- <button type="button" class="btn btn-success btn-xs res_btn">Send --}}
+                                                {{-- Interest --}}
+                                                {{-- </button> --}}
+                                                {{-- </div> --}}
 
                                                 <div class="">
-                                                    <a href="#" data-content="{{$search_user->id}}"
-                                                       id="send_{{$search_user->id}}" onclick="send_interest(this)"
-                                                       class="popup_submitbtn btn-sm btn-success">Send Interest</a>
+                                                    <a href="#" data-content="{{ $search_user->id }}"
+                                                        id="send_{{ $search_user->id }}" onclick="send_interest(this)"
+                                                        class="popup_submitbtn btn-sm btn-success">Send Interest</a>
                                                 </div>
                                             @elseif($result[0]->status_ == 'SENDER')
-                                                {{--<div class="btn-group cand_btncontainner"--}}
-                                                {{--data-content="{{$search_user->id}}"--}}
-                                                {{--id="pending_{{$search_user->id}}" onclick="cancelrequest(this);">--}}
-                                                {{--<button type="button" class="btn btn-danger btn-xs res_btn"><span--}}
-                                                {{--class="mdi mdi-close"></span></button>--}}
-                                                {{--<button type="button" class="btn btn-danger btn-xs res_btn">Cancel--}}
-                                                {{--Interest--}}
-                                                {{--</button>--}}
-                                                {{--</div>--}}
+                                                {{-- <div class="btn-group cand_btncontainner" --}}
+                                                {{-- data-content="{{$search_user->id}}" --}}
+                                                {{-- id="pending_{{$search_user->id}}" onclick="cancelrequest(this);"> --}}
+                                                {{-- <button type="button" class="btn btn-danger btn-xs res_btn"><span --}}
+                                                {{-- class="mdi mdi-close"></span></button> --}}
+                                                {{-- <button type="button" class="btn btn-danger btn-xs res_btn">Cancel --}}
+                                                {{-- Interest --}}
+                                                {{-- </button> --}}
+                                                {{-- </div> --}}
                                                 <div class="">
-                                                    <a href="#" data-content="{{$search_user->id}}"
-                                                       id="pending_{{$search_user->id}}" onclick="cancelrequest(this);"
-                                                       class="popup_submitbtn_cancel btn-sm btn-danger">Cancel
+                                                    <a href="#" data-content="{{ $search_user->id }}"
+                                                        id="pending_{{ $search_user->id }}"
+                                                        onclick="cancelrequest(this);"
+                                                        class="popup_submitbtn_cancel btn-sm btn-danger">Cancel
                                                         Interest</a>
                                                 </div>
                                             @elseif($result[0]->status_ == 'RECIEVER')
-                                                {{--<div class="btn-group cand_btncontainner"--}}
-                                                {{--data-content="{{$search_user->id}}"--}}
-                                                {{--id="pending_{{$search_user->id}}" onclick="acceptfrequest(this);">--}}
-                                                {{--<button type="button" class="btn btn-success btn-xs res_btn"><span--}}
-                                                {{--class="mdi mdi-check"></span></button>--}}
-                                                {{--<button type="button" class="btn btn-success btn-xs res_btn">Accept--}}
-                                                {{--Interest--}}
-                                                {{--</button>--}}
-                                                {{--</div>--}}
+                                                {{-- <div class="btn-group cand_btncontainner" --}}
+                                                {{-- data-content="{{$search_user->id}}" --}}
+                                                {{-- id="pending_{{$search_user->id}}" onclick="acceptfrequest(this);"> --}}
+                                                {{-- <button type="button" class="btn btn-success btn-xs res_btn"><span --}}
+                                                {{-- class="mdi mdi-check"></span></button> --}}
+                                                {{-- <button type="button" class="btn btn-success btn-xs res_btn">Accept --}}
+                                                {{-- Interest --}}
+                                                {{-- </button> --}}
+                                                {{-- </div> --}}
                                                 <div class="">
-                                                    <a href="#" data-content="{{$search_user->id}}"
-                                                       id="pending_{{$search_user->id}}" onclick="acceptfrequest(this);"
-                                                       class="popup_submitbtn btn-sm btn-success">Accept Interest</a>
+                                                    <a href="#" data-content="{{ $search_user->id }}"
+                                                        id="pending_{{ $search_user->id }}"
+                                                        onclick="acceptfrequest(this);"
+                                                        class="popup_submitbtn btn-sm btn-success">Accept Interest</a>
                                                 </div>
                                             @elseif($result[0]->status_ == 'FRIENDS')
-                                                {{--<div class="btn-group cand_btncontainner"--}}
-                                                {{--data-content="{{$search_user->id}}"--}}
-                                                {{--id="friends_{{$search_user->id}}">--}}
-                                                {{--<button type="button" class="btn btn-default btn-xs res_btn"><span--}}
-                                                {{--class="mdi mdi-eye"></span></button>--}}
-                                                {{--<button type="button" class="btn btn-default btn-xs res_btn">Friends--}}
-                                                {{--</button>--}}
-                                                {{--</div>--}}
-                                                {{--<div class="btn-group cand_btncontainner"--}}
-                                                {{--data-content="{{$search_user->id}}"--}}
-                                                {{--id="friends_{{$search_user->id}}" onclick="unfriend(this);">--}}
-                                                {{--<button type="button" class="btn btn-default btn-xs res_btn"><span--}}
-                                                {{--class="mdi mdi-eye"></span></button>--}}
-                                                {{--<button type="button" class="btn btn-default btn-xs res_btn">UnFriend--}}
-                                                {{--</button>--}}
-                                                {{--</div>--}}
+                                                {{-- <div class="btn-group cand_btncontainner" --}}
+                                                {{-- data-content="{{$search_user->id}}" --}}
+                                                {{-- id="friends_{{$search_user->id}}"> --}}
+                                                {{-- <button type="button" class="btn btn-default btn-xs res_btn"><span --}}
+                                                {{-- class="mdi mdi-eye"></span></button> --}}
+                                                {{-- <button type="button" class="btn btn-default btn-xs res_btn">Friends --}}
+                                                {{-- </button> --}}
+                                                {{-- </div> --}}
+                                                {{-- <div class="btn-group cand_btncontainner" --}}
+                                                {{-- data-content="{{$search_user->id}}" --}}
+                                                {{-- id="friends_{{$search_user->id}}" onclick="unfriend(this);"> --}}
+                                                {{-- <button type="button" class="btn btn-default btn-xs res_btn"><span --}}
+                                                {{-- class="mdi mdi-eye"></span></button> --}}
+                                                {{-- <button type="button" class="btn btn-default btn-xs res_btn">UnFriend --}}
+                                                {{-- </button> --}}
+                                                {{-- </div> --}}
                                                 <div class="">
-                                                    <a href="#" data-content="{{$search_user->id}}"
-                                                       id="friends_{{$search_user->id}}" onclick="unfriend(this);"
-                                                       class="popup_submitbtn btn-sm upgrade_bg">UnFriend</a>
+                                                    <a href="#" data-content="{{ $search_user->id }}"
+                                                        id="friends_{{ $search_user->id }}" onclick="unfriend(this);"
+                                                        class="popup_submitbtn btn-sm upgrade_bg">UnFriend</a>
                                                 </div>
                                             @else
-
                                             @endif
                                             <div class="">
-                                                <a href="#" data-content="{{$search_user->id}}"
-                                                   id="view_{{$search_user->id}}" onclick="view_contact(this)"
-                                                   class="popup_submitbtn btn-sm btn-info">View Contact</a>
+                                                <a href="#" data-content="{{ $search_user->id }}"
+                                                    id="view_{{ $search_user->id }}" onclick="view_contact(this)"
+                                                    class="popup_submitbtn btn-sm btn-info">View Contact</a>
                                             </div>
-                                            {{--<div class="btn-group cand_btncontainner" data-content="{{$search_user->id}}"--}}
-                                            {{--id="view_{{$search_user->id}}" onclick="view_contact(this)">--}}
-                                            {{--<button type="button" class="btn btn-info btn-xs res_btn"><span--}}
-                                            {{--class="mdi mdi-eye"></span></button>--}}
-                                            {{--<button type="button" class="btn btn-info btn-xs res_btn">View Contact--}}
-                                            {{--</button>--}}
-                                            {{--</div>--}}
-                                            {{--<div class="btn-group cand_btncontainner" onclick="ShowLoginSignup('signin');">--}}
-                                            {{--<button type="button" class="btn btn-success btn-sm res_btn"><span--}}
-                                            {{--class="mdi mdi-phone"></span></button>--}}
-                                            {{--<button type="button" class="btn btn-success btn-sm res_btn">Contact</button>--}}
-                                            {{--</div>--}}
+                                            {{-- <div class="btn-group cand_btncontainner" data-content="{{$search_user->id}}" --}}
+                                            {{-- id="view_{{$search_user->id}}" onclick="view_contact(this)"> --}}
+                                            {{-- <button type="button" class="btn btn-info btn-xs res_btn"><span --}}
+                                            {{-- class="mdi mdi-eye"></span></button> --}}
+                                            {{-- <button type="button" class="btn btn-info btn-xs res_btn">View Contact --}}
+                                            {{-- </button> --}}
+                                            {{-- </div> --}}
+                                            {{-- <div class="btn-group cand_btncontainner" onclick="ShowLoginSignup('signin');"> --}}
+                                            {{-- <button type="button" class="btn btn-success btn-sm res_btn"><span --}}
+                                            {{-- class="mdi mdi-phone"></span></button> --}}
+                                            {{-- <button type="button" class="btn btn-success btn-sm res_btn">Contact</button> --}}
+                                            {{-- </div> --}}
                                         </div>
                                     </div>
                                 @endforeach
-                                {{ isset($u_paginat)? $u_paginat->links() : $users->links() }}
+                                {{ isset($u_paginat) ? $u_paginat->links() : $users->links() }}
                             @endif
                         @endif
                     @else
                         <div class="cand_box">
-                            <span>< No Record Available></span>
+                            <span>
+                                < No Record Available>
+                            </span>
                         </div>
                     @endif
 
@@ -1442,14 +1470,15 @@ $today = \Carbon\Carbon::now()->format('Y-m-d');
     </section>
 
     <script type="text/javascript">
-        $(function () {
+        $(function() {
             $(".typeDD").select2({
-//                placeholder: "SELECT IMEI",
+                //                placeholder: "SELECT IMEI",
                 width: 'element',
                 minimumResultsForSearch: Infinity,
                 cache: true
             });
         });
+
         function FilterShow() {
             var chkfilterbox = $('#filter_box').attr('class');
             if (chkfilterbox == "cand_search_filterbox") {
@@ -1462,33 +1491,33 @@ $today = \Carbon\Carbon::now()->format('Y-m-d');
 
         append_loading_img = '<div class="feed_loadimg_block" id="load_img">' +
             '<img height="50px" class="center-block" src="{{ url('images/loading.gif') }}"/></div>';
-        {{--function getmorepost() {--}}
-        {{--$("#load_img").remove();--}}
-        {{--cp = 1;--}}
-        {{--cp += parseFloat($('#see_id').val());--}}
-        {{--$('#see_id').val(cp);--}}
-        {{--var value = $(".filter_form").serialize();--}}
-        {{--$.ajax({--}}
-        {{--type: "GET",--}}
-        {{--contentType: "application/json; charset=utf-8",--}}
-        {{--url: "{{ url('candidates').'/'}}" + cp,--}}
-        {{--//                data: '{"currentpage":"' + cp + '"}',--}}
-        {{--data: value,--}}
-        {{--beforeSend: function () {--}}
-        {{--$('#candidate_list').append(append_loading_img);--}}
-        {{--},--}}
-        {{--success: function (data) {--}}
-        {{--$("#load_img").remove();--}}
-        {{--$("#candidate_list").append(data);--}}
-        {{--//                    swal("Good job!", "You clicked the button!", "error");--}}
+        {{-- function getmorepost() { --}}
+        {{-- $("#load_img").remove(); --}}
+        {{-- cp = 1; --}}
+        {{-- cp += parseFloat($('#see_id').val()); --}}
+        {{-- $('#see_id').val(cp); --}}
+        {{-- var value = $(".filter_form").serialize(); --}}
+        {{-- $.ajax({ --}}
+        {{-- type: "GET", --}}
+        {{-- contentType: "application/json; charset=utf-8", --}}
+        {{-- url: "{{ url('candidates').'/'}}" + cp, --}}
+        {{-- //                data: '{"currentpage":"' + cp + '"}', --}}
+        {{-- data: value, --}}
+        {{-- beforeSend: function () { --}}
+        {{-- $('#candidate_list').append(append_loading_img); --}}
+        {{-- }, --}}
+        {{-- success: function (data) { --}}
+        {{-- $("#load_img").remove(); --}}
+        {{-- $("#candidate_list").append(data); --}}
+        {{-- //                    swal("Good job!", "You clicked the button!", "error"); --}}
 
-        {{--},--}}
-        {{--error: function (xhr, status, error) {--}}
-        {{--$('#candidate_list').html(xhr.responseText);--}}
-        {{--//                    ShowErrorPopupMsg('Error in uploading...');--}}
-        {{--}--}}
-        {{--});--}}
-        {{--}--}}
+        {{-- }, --}}
+        {{-- error: function (xhr, status, error) { --}}
+        {{-- $('#candidate_list').html(xhr.responseText); --}}
+        {{-- //                    ShowErrorPopupMsg('Error in uploading...'); --}}
+        {{-- } --}}
+        {{-- }); --}}
+        {{-- } --}}
 
         //           $(function () {
         //            $('body').on('click', '.pagination a', function (e) {
@@ -1517,27 +1546,27 @@ $today = \Carbon\Carbon::now()->format('Y-m-d');
         //            $(".filter_form").submit();
         //        }
 
-        $(document).ready(function () {
-            {{--$(".search_filter").click(function () {--}}
-            {{--$(".filter_form").submit();--}}
-            {{--//                var value = $(".filter_form").serialize();--}}
-            {{--$.ajax({--}}
-            {{--type: 'get',--}}
-            {{--url: "{{ url('refine_candidate_list')}}",--}}
-            {{--data: value,--}}
-            {{--beforeSend: function () {--}}
-            {{--$('#candidate_list').append(append_loading_img);--}}
-            {{--},--}}
-            {{--success: function (data) {--}}
-            {{--$("#load_img").remove();--}}
-            {{--$("#candidate_list").html('');--}}
-            {{--$("#candidate_list").html(data);--}}
-            {{--},--}}
-            {{--error: function (results) {--}}
-            {{--$('#candidate_list').html(results.responseText);--}}
-            {{--}--}}
-            {{--});--}}
-            {{--});--}}
+        $(document).ready(function() {
+            {{-- $(".search_filter").click(function () { --}}
+            {{-- $(".filter_form").submit(); --}}
+            {{-- //                var value = $(".filter_form").serialize(); --}}
+            {{-- $.ajax({ --}}
+            {{-- type: 'get', --}}
+            {{-- url: "{{ url('refine_candidate_list')}}", --}}
+            {{-- data: value, --}}
+            {{-- beforeSend: function () { --}}
+            {{-- $('#candidate_list').append(append_loading_img); --}}
+            {{-- }, --}}
+            {{-- success: function (data) { --}}
+            {{-- $("#load_img").remove(); --}}
+            {{-- $("#candidate_list").html(''); --}}
+            {{-- $("#candidate_list").html(data); --}}
+            {{-- }, --}}
+            {{-- error: function (results) { --}}
+            {{-- $('#candidate_list').html(results.responseText); --}}
+            {{-- } --}}
+            {{-- }); --}}
+            {{-- }); --}}
         });
 
         //        $(window).scroll(function (event) {

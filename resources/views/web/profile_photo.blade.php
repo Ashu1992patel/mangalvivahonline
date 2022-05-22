@@ -1,6 +1,6 @@
 @extends('web.web_master')
 
-@section('title','Mangal Mandap : Profile Picture')
+@section('title','Mangal Vivah :Profile Picture')
 @section('head')
 
     <link href="{{url('css/cropper.min.css')}}" type="text/css" rel="stylesheet"/>

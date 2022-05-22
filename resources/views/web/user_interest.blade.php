@@ -1,6 +1,6 @@
 @extends('web.web_master')
 
-@section('title','Mangal Mandap : Profiles List')
+@section('title','Mangal Vivah :Profiles List')
 @section('head')
     <style>
 

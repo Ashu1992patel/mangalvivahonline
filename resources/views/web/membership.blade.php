@@ -1,6 +1,6 @@
 @extends('web.web_master')
 
-@section('title','Mangal Mandap : Membership')
+@section('title','Mangal Vivah :Membership')
 
 @section('head')
     <link rel="stylesheet" href="{{url('css/custom.css')}}"/>
