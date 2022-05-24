@@ -1,6 +1,6 @@
 ﻿@extends('web.web_master')
 
-@section('title','Mangal Mandap : Policy')
+@section('title','Mangal Vivah :Policy')
 @section('head')
     <style type="text/css">
         .f-color

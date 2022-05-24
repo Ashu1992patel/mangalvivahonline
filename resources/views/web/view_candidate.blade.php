@@ -1,6 +1,6 @@
 @extends('web.web_master')
 
-@section('title','Mangal Mandap : View Candidate')
+@section('title','Mangal Vivah :View Candidate')
 @section('head')
     <style type="text/css">
         .similor_profile_ul {

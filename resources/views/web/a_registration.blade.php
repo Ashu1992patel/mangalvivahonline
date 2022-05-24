@@ -1,9 +1,9 @@
 @extends('web.web_master')
 
-@section('title','Mangal Mandap : Registration')
+@section('title', 'Mangal Mandap : Registration')
 
 @section('head')
-    <link rel="stylesheet" href="{{url('css/form-wizard.css')}}"/>
+    <link rel="stylesheet" href="{{ url('css/form-wizard.css') }}" />
     <style type="text/css">
         .txt_area {
             height: 100% !important;
@@ -23,7 +23,8 @@
             margin-top: 10px;
         }
 
-        .animate_placeholder, .animate_txt {
+        .animate_placeholder,
+        .animate_txt {
             transition: all 0.2s;
             touch-action: manipulation;
         }
@@ -50,7 +51,7 @@
             color: #848181;
         }
 
-        .animate_txt:placeholder-shown + .animate_placeholder {
+        .animate_txt:placeholder-shown+.animate_placeholder {
             cursor: text;
             max-width: fit-content;
             white-space: nowrap;
@@ -69,8 +70,8 @@
             color: #cccccc;
         }
 
-        .animate_txt:not(:placeholder-shown) + .animate_placeholder,
-        .animate_txt:focus + .animate_placeholder {
+        .animate_txt:not(:placeholder-shown)+.animate_placeholder,
+        .animate_txt:focus+.animate_placeholder {
             transform: translate(0, 0) scale(1);
             cursor: pointer;
             background: #f5f5f5;
@@ -177,14 +178,16 @@
         p {
             font-size: 14px !important;
         }
+
     </style>
-    <script type="text/javascript" src="{{url('js/form-wizard.js')}}"></script>
+    <script type="text/javascript" src="{{ url('js/form-wizard.js') }}"></script>
 @stop
 
 @section('content')
     <section class="regitration_member">
         <div class="container">
-            <form action="{{url('register')}}" method="post">
+            <form action="{{ url('a_register') }}" method="post">
+                @csrf
                 <input type="hidden" name="admin_reg" value="1">
                 <div class="form-wizard form-header-modarn form-body-material">
                     <div class="frount_basic_heading"><span class="frount_head_txt">Registration</span></div>
@@ -192,7 +195,7 @@
                         <div class="form-wizard-steps form-wizard-tolal-steps-4">
                             <div class="form-wizard-progress">
                                 <div class="form-wizard-progress-line" data-now-value="12.25" data-number-of-steps="4"
-                                     style="width: 12.25%;"></div>
+                                    style="width: 12.25%;"></div>
                             </div>
                             <div class="form-wizard-step active">
                                 <div class="form-wizard-step-icon"><i class="mdi mdi-account" aria-hidden="true"></i>
@@ -200,8 +203,7 @@
                                 <p>BASIC DETAILS</p>
                             </div>
                             <div class="form-wizard-step">
-                                <div class="form-wizard-step-icon"><i class="mdi mdi-account-edit"
-                                                                      aria-hidden="true"></i>
+                                <div class="form-wizard-step-icon"><i class="mdi mdi-account-edit" aria-hidden="true"></i>
                                 </div>
                                 <p>PERSONAL INFORMATION</p>
                             </div>
@@ -212,33 +214,32 @@
                             </div>
                             <div class="form-wizard-step">
                                 <div class="form-wizard-step-icon"><i class="mdi mdi-account-multiple"
-                                                                      aria-hidden="true"></i>
+                                        aria-hidden="true"></i>
                                 </div>
                                 <p>FAMILY DETAILS</p>
                             </div>
-                            {{--<div class="form-wizard-step">--}}
-                            {{--<div class="form-wizard-step-icon"><i class="mdi mdi-account-star"--}}
-                            {{--aria-hidden="true"></i>--}}
-                            {{--</div>--}}
-                            {{--<p>SOCIO-RELIGIOUS BACKGROUND</p>--}}
-                            {{--</div>--}}
+                            {{-- <div class="form-wizard-step"> --}}
+                            {{-- <div class="form-wizard-step-icon"><i class="mdi mdi-account-star" --}}
+                            {{-- aria-hidden="true"></i> --}}
+                            {{-- </div> --}}
+                            {{-- <p>SOCIO-RELIGIOUS BACKGROUND</p> --}}
+                            {{-- </div> --}}
                             <div class="form-wizard-step">
-                                <div class="form-wizard-step-icon"><i class="mdi mdi-account-star"
-                                                                      aria-hidden="true"></i>
+                                <div class="form-wizard-step-icon"><i class="mdi mdi-account-star" aria-hidden="true"></i>
                                 </div>
                                 <p>PARTNER PREFERENCE</p>
-                                {{--</div><div class="form-wizard-step">--}}
-                                {{--<div class="form-wizard-step-icon"><i class="mdi mdi-account-star"--}}
-                                {{--aria-hidden="true"></i>--}}
-                                {{--</div>--}}
-                                {{--<p>PARTNER PREFERENCE</p>--}}
+                                {{-- </div><div class="form-wizard-step"> --}}
+                                {{-- <div class="form-wizard-step-icon"><i class="mdi mdi-account-star" --}}
+                                {{-- aria-hidden="true"></i> --}}
+                                {{-- </div> --}}
+                                {{-- <p>PARTNER PREFERENCE</p> --}}
                             </div>
                         </div>
                         <fieldset style="display: block;">
                             <!-- Progress Bar -->
                             <div class="progress wizard_progress">
-                                <div class="progress-bar progress-bar-striped active" role="progressbar"
-                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="20"
+                                    aria-valuemin="0" aria-valuemax="100" style="width: 20%">
                                 </div>
                             </div>
                             <!-- Progress Bar -->
@@ -247,19 +248,18 @@
                                 <div class="col-sm-6">
                                     <div class="textbox_containner">
                                         <input type="text" editable="false" name="name" autocomplete="off"
-                                               class="animate_txt textWithSpace required" id="name"
-                                               placeholder="Enter Full Name">
+                                            class="animate_txt textWithSpace required" id="name"
+                                            placeholder="Enter Full Name">
                                         <label class="animate_placeholder" for="name">Full Name<span
-                                                    class="rq_color">*</span></label>
+                                                class="rq_color">*</span></label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="textbox_containner">
                                         <input type="text" editable="false" name="email" autocomplete="off"
-                                               class="animate_txt email required" id="email"
-                                               placeholder="Enter Email">
+                                            class="animate_txt email required" id="email" placeholder="Enter Email">
                                         <label class="animate_placeholder" for="email">Email<span
-                                                    class="rq_color">*</span></label>
+                                                class="rq_color">*</span></label>
                                     </div>
                                 </div>
                             </div>
@@ -267,21 +267,20 @@
                                 <div class="col-sm-6">
                                     <div class="textbox_containner">
                                         <input type="text" editable="false" name="contact" autocomplete="off"
-                                               class="animate_txt contact required numberOnly" id="contact"
-                                               placeholder="Enter Primary No" maxlength="12">
+                                            class="animate_txt contact required numberOnly" id="contact"
+                                            placeholder="Enter Primary No" maxlength="12">
                                         <label class="animate_placeholder" for="contact">Primary No<span
-                                                    class="rq_color">*</span></label>
+                                                class="rq_color">*</span></label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="textbox_containner">
                                         <input type="text" editable="false" name="dob" autocomplete="off"
-                                               class="animate_txt dob required" id="dob"
-                                               placeholder="Date Of Birth"
-                                               title="You can only edit once in a life this field" data-toggle="tooltip"
-                                               data-placement="top">
+                                            class="animate_txt dob required" id="dob" placeholder="Date Of Birth"
+                                            title="You can only edit once in a life this field" data-toggle="tooltip"
+                                            data-placement="top">
                                         <label class="animate_placeholder" for="dob">Date Of Birth<span
-                                                    class="rq_color">*</span></label>
+                                                class="rq_color">*</span></label>
                                     </div>
                                 </div>
 
@@ -291,10 +290,9 @@
                                 <div class="col-sm-6">
                                     <div class="textbox_containner">
                                         <input type="password" editable="false" name="password" autocomplete="off"
-                                               class="animate_txt required" id="password"
-                                               placeholder="Password">
+                                            class="animate_txt required" id="password" placeholder="Password">
                                         <label class="animate_placeholder" for="password">Password<span
-                                                    class="rq_color">*</span></label>
+                                                class="rq_color">*</span></label>
                                     </div>
                                 </div>
                                 <p></p>
@@ -314,31 +312,31 @@
                             </div>
                             <div class="row form-group">
                                 @php
-                                    $states =  \Illuminate\Support\Facades\DB::select("SELECT DISTINCT state FROM `statelist`");
-                                        $cities =  \Illuminate\Support\Facades\DB::table('statelist')->distinct('state')->get();
+                                    $states = \Illuminate\Support\Facades\DB::select('SELECT DISTINCT state FROM `statelist`');
+                                    $cities = \Illuminate\Support\Facades\DB::table('statelist')
+                                        ->distinct('state')
+                                        ->get();
                                 @endphp
                                 <div class="col-sm-6">
                                     <select name="state" class="form-control txt_wizard" id="state">
-                                        <option value="">Select State<span
-                                                    class="rq_color">*</span></option>
-                                        @foreach($states as $state)
-                                            <option value="{{$state->state}}">{{$state->state}}</option>
+                                        <option value="">Select State<span class="rq_color">*</span></option>
+                                        @foreach ($states as $state)
+                                            <option value="{{ $state->state }}">{{ $state->state }}</option>
                                         @endforeach
                                     </select>
 
                                 </div>
                                 <div class="col-sm-6">
-                                    {{--<select name="city" class="form-control requiredDD txt_wizard" id="city">
+                                    {{-- <select name="city" class="form-control requiredDD txt_wizard" id="city">
                                         <option value="">Select City<span
                                                     class="rq_color">*</span></option>
-                                        @foreach($cities as $city)
+                                        @foreach ($cities as $city)
                                             <option value="{{$city->city_name}}">{{$city->city_name}}</option>
                                         @endforeach
-                                    </select>--}}
+                                    </select> --}}
                                     <div class="textbox_containner">
-                                        <input type="text" name="city" autocomplete="off"
-                                               class="animate_txt required" id="city"
-                                               placeholder="City">
+                                        <input type="text" name="city" autocomplete="off" class="animate_txt required"
+                                            id="city" placeholder="City">
                                         <label class="animate_placeholder" for="city">City</label>
                                     </div>
                                 </div>
@@ -353,9 +351,8 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="textbox_containner">
-                                        <input type="text" name="address" autocomplete="off"
-                                               class="animate_txt required" id="address"
-                                               placeholder="Address">
+                                        <input type="text" name="address" autocomplete="off" class="animate_txt required"
+                                            id="address" placeholder="Address">
                                         <label class="animate_placeholder" for="address">Address</label>
                                     </div>
                                 </div>
@@ -363,54 +360,54 @@
 
                             </div>
 
-                            {{--<div class="row form-group">--}}
+                            {{-- <div class="row form-group"> --}}
 
-                            {{--<div class="col-sm-6">--}}
-                            {{--<select name="salary" id="salary"--}}
-                            {{--class="form-control requiredDD txt_wizard">--}}
-                            {{--<option selected="selected" label="Select" value="">Annual Income</option>--}}
-                            {{--<option value="Upto INR 1 Lakh" label="Upto INR 1 Lakh">Upto INR 1 Lakh</option>--}}
-                            {{--<option value="INR 1 Lakh to 2 Lakh" label="INR 1 Lakh to 2 Lakh">INR 1 Lakh to--}}
-                            {{--2 Lakh--}}
-                            {{--</option>--}}
-                            {{--<option value="INR 2 Lakh to 4 Lakh" label="INR 2 Lakh to 4 Lakh">INR 2 Lakh to--}}
-                            {{--4 Lakh--}}
-                            {{--</option>--}}
-                            {{--<option value="INR 4 Lakh to 7 Lakh" label="INR 4 Lakh to 7 Lakh">INR 4 Lakh to--}}
-                            {{--7 Lakh--}}
-                            {{--</option>--}}
-                            {{--<option value="INR 7 Lakh to 10 Lakh" label="INR 7 Lakh to 10 Lakh">INR 7 Lakh--}}
-                            {{--to 10 Lakh--}}
-                            {{--</option>--}}
-                            {{--<option value="INR 10 Lakh to 15 Lakh" label="INR 10 Lakh to 15 Lakh">INR 10--}}
-                            {{--Lakh to 15 Lakh--}}
-                            {{--</option>--}}
-                            {{--<option value="INR 15 Lakh to 20 Lakh" label="INR 15 Lakh to 20 Lakh">INR 15--}}
-                            {{--Lakh to 20 Lakh--}}
-                            {{--</option>--}}
-                            {{--<option value="INR 20 Lakh to 30 Lakh" label="INR 20 Lakh to 30 Lakh">INR 20--}}
-                            {{--Lakh to 30 Lakh--}}
-                            {{--</option>--}}
-                            {{--<option value="INR 30 Lakh to 50 Lakh" label="INR 30 Lakh to 50 Lakh">INR 30--}}
-                            {{--Lakh to 50 Lakh--}}
-                            {{--</option>--}}
-                            {{--<option value="INR 50 Lakh to 75 Lakh" label="INR 50 Lakh to 75 Lakh">INR 50--}}
-                            {{--Lakh to 75 Lakh--}}
-                            {{--</option>--}}
-                            {{--<option value="INR 75 Lakh to 1 Crore" label="INR 75 Lakh to 1 Crore">INR 75--}}
-                            {{--Lakh to 1 Crore--}}
-                            {{--</option>--}}
-                            {{--<option value="INR 1 Crore &amp; above" label="INR 1 Crore &amp; above">INR 1--}}
-                            {{--Crore &amp; above--}}
-                            {{--</option>--}}
-                            {{--<option value="Not applicable" label="Not applicable">Not applicable</option>--}}
-                            {{--<option value="Dont want to specify" label="Dont want to specify">Dont want to--}}
-                            {{--specify--}}
-                            {{--</option>--}}
+                            {{-- <div class="col-sm-6"> --}}
+                            {{-- <select name="salary" id="salary" --}}
+                            {{-- class="form-control requiredDD txt_wizard"> --}}
+                            {{-- <option selected="selected" label="Select" value="">Annual Income</option> --}}
+                            {{-- <option value="Upto INR 1 Lakh" label="Upto INR 1 Lakh">Upto INR 1 Lakh</option> --}}
+                            {{-- <option value="INR 1 Lakh to 2 Lakh" label="INR 1 Lakh to 2 Lakh">INR 1 Lakh to --}}
+                            {{-- 2 Lakh --}}
+                            {{-- </option> --}}
+                            {{-- <option value="INR 2 Lakh to 4 Lakh" label="INR 2 Lakh to 4 Lakh">INR 2 Lakh to --}}
+                            {{-- 4 Lakh --}}
+                            {{-- </option> --}}
+                            {{-- <option value="INR 4 Lakh to 7 Lakh" label="INR 4 Lakh to 7 Lakh">INR 4 Lakh to --}}
+                            {{-- 7 Lakh --}}
+                            {{-- </option> --}}
+                            {{-- <option value="INR 7 Lakh to 10 Lakh" label="INR 7 Lakh to 10 Lakh">INR 7 Lakh --}}
+                            {{-- to 10 Lakh --}}
+                            {{-- </option> --}}
+                            {{-- <option value="INR 10 Lakh to 15 Lakh" label="INR 10 Lakh to 15 Lakh">INR 10 --}}
+                            {{-- Lakh to 15 Lakh --}}
+                            {{-- </option> --}}
+                            {{-- <option value="INR 15 Lakh to 20 Lakh" label="INR 15 Lakh to 20 Lakh">INR 15 --}}
+                            {{-- Lakh to 20 Lakh --}}
+                            {{-- </option> --}}
+                            {{-- <option value="INR 20 Lakh to 30 Lakh" label="INR 20 Lakh to 30 Lakh">INR 20 --}}
+                            {{-- Lakh to 30 Lakh --}}
+                            {{-- </option> --}}
+                            {{-- <option value="INR 30 Lakh to 50 Lakh" label="INR 30 Lakh to 50 Lakh">INR 30 --}}
+                            {{-- Lakh to 50 Lakh --}}
+                            {{-- </option> --}}
+                            {{-- <option value="INR 50 Lakh to 75 Lakh" label="INR 50 Lakh to 75 Lakh">INR 50 --}}
+                            {{-- Lakh to 75 Lakh --}}
+                            {{-- </option> --}}
+                            {{-- <option value="INR 75 Lakh to 1 Crore" label="INR 75 Lakh to 1 Crore">INR 75 --}}
+                            {{-- Lakh to 1 Crore --}}
+                            {{-- </option> --}}
+                            {{-- <option value="INR 1 Crore &amp; above" label="INR 1 Crore &amp; above">INR 1 --}}
+                            {{-- Crore &amp; above --}}
+                            {{-- </option> --}}
+                            {{-- <option value="Not applicable" label="Not applicable">Not applicable</option> --}}
+                            {{-- <option value="Dont want to specify" label="Dont want to specify">Dont want to --}}
+                            {{-- specify --}}
+                            {{-- </option> --}}
 
-                            {{--</select>--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
+                            {{-- </select> --}}
+                            {{-- </div> --}}
+                            {{-- </div> --}}
                             <div class="form-wizard-buttons">
                                 <button type="button" class="btn btn-next">Next</button>
                             </div>
@@ -418,8 +415,8 @@
                         <fieldset style="display: none;">
                             <!-- Progress Bar -->
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped active" role="progressbar"
-                                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40"
+                                    aria-valuemin="0" aria-valuemax="100" style="width:40%">
                                 </div>
                             </div>
 
@@ -435,7 +432,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <select name="horoscope_match" id="HoroscopeMatch_Partner"
-                                            class="form-control requiredDD txt_wizard">
+                                        class="form-control requiredDD txt_wizard">
                                         <option selected="" value="">Horoscope Match</option>
                                         <option value="1">Must</option>
                                         <option value="0">Not Necessary</option>
@@ -446,21 +443,19 @@
                                 <div class="col-sm-6">
                                     <div class="textbox_containner">
                                         <input type="text" editable="false" name="bop" autocomplete="off"
-                                               class="animate_txt " id="bop"
-                                               placeholder="Birth place">
+                                            class="animate_txt " id="bop" placeholder="Birth place">
                                         <label class="animate_placeholder" for="bop">Birth place</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="textbox_containner">
-                                        {{--<input type="time" editable="false" name="tob" autocomplete="off"--}}
-                                        {{--class="animate_txt " id="tob"--}}
-                                        {{--placeholder="Time of Birth">--}}
-                                        {{--<label class="animate_placeholder" for="tob">Birth of time</label>--}}
+                                        {{-- <input type="time" editable="false" name="tob" autocomplete="off" --}}
+                                        {{-- class="animate_txt " id="tob" --}}
+                                        {{-- placeholder="Time of Birth"> --}}
+                                        {{-- <label class="animate_placeholder" for="tob">Birth of time</label> --}}
                                         <input type="time" name="tob" autocomplete="off" class="animate_txt " id="tob"
-                                               placeholder="Time of Birth"
-                                               title="Time of Birth" data-toggle="tooltip"
-                                               data-placement="top">
+                                            placeholder="Time of Birth" title="Time of Birth" data-toggle="tooltip"
+                                            data-placement="top">
                                     </div>
                                 </div>
                             </div>
@@ -526,8 +521,8 @@
                             <div class="row form-group">
                                 <div class="col-sm-6">
                                     <select name="gender" class="form-control requiredDD txt_wizard"
-                                            title="You can only edit once in a life this field" data-toggle="tooltip"
-                                            data-placement="top">
+                                        title="You can only edit once in a life this field" data-toggle="tooltip"
+                                        data-placement="top">
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                     </select>
@@ -586,8 +581,8 @@
                             <div class="row form-group">
                                 <div class="col-sm-6">
                                     <select name="status" class="form-control requiredDD txt_wizard"
-                                            title="You can only edit once in a life this field" data-toggle="tooltip"
-                                            data-placement="top">
+                                        title="You can only edit once in a life this field" data-toggle="tooltip"
+                                        data-placement="top">
                                         <option selected="" value="0">Marital Status*</option>
                                         <option value="Never married">Never married</option>
                                         <option value="Divorced">Divorced</option>
@@ -596,12 +591,12 @@
                                     </select>
                                 </div>
                                 <div class="col-sm-6">
-                                    {{--<input type="text" editable="false" name="religion" autocomplete="off"--}}
-                                    {{--class="animate_txt " id="religion"--}}
-                                    {{--placeholder="Religion">--}}
+                                    {{-- <input type="text" editable="false" name="religion" autocomplete="off" --}}
+                                    {{-- class="animate_txt " id="religion" --}}
+                                    {{-- placeholder="Religion"> --}}
                                     <select name="religion" class="form-control requiredDD txt_wizard" id="religion"
-                                            title="You can only edit once in a life this field" data-toggle="tooltip"
-                                            data-placement="top">
+                                        title="You can only edit once in a life this field" data-toggle="tooltip"
+                                        data-placement="top">
                                         <option selected="selected" value="">Select Religion*</option>
                                         <option value="Hindu">Hindu</option>
                                         <option value="Muslim">Muslim</option>
@@ -616,7 +611,7 @@
                                         <option value="Parsi">Parsi</option>
                                         <option value="Buddhist">Buddhist</option>
                                     </select>
-                                    {{--<label class="animate_placeholder" for="religion">Religion</label>--}}
+                                    {{-- <label class="animate_placeholder" for="religion">Religion</label> --}}
                                 </div>
 
                             </div>
@@ -1084,17 +1079,14 @@
                                 <div class="col-sm-6">
                                     <div class="textbox_containner">
                                         <input type="text" editable="false" name="subcaste" autocomplete="off"
-                                               class="animate_txt " id="subcaste"
-                                               placeholder="Subcaste">
+                                            class="animate_txt " id="subcaste" placeholder="Subcaste">
                                         <label class="animate_placeholder" for="subcaste">Subcaste</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="textbox_containner txt_area">
-                                        <textarea type="text" editable="false" name="about_me"
-                                                  autocomplete="off"
-                                                  class="animate_txt required" id="about_me"
-                                                  placeholder="Express Yourself(Min 50 words)" rows="3"></textarea>
+                                        <textarea type="text" editable="false" name="about_me" autocomplete="off" class="animate_txt required" id="about_me"
+                                            placeholder="Express Yourself(Min 50 words)" rows="3"></textarea>
                                         <label class="animate_placeholder " for="about_me">Express
                                             Yourself</label>
                                     </div>
@@ -1110,39 +1102,39 @@
                         <fieldset style="display: none;">
                             <!-- Progress Bar -->
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped active" role="progressbar"
-                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="60"
+                                    aria-valuemin="0" aria-valuemax="100" style="width: 60%">
                                 </div>
                             </div>
                             <!--  <div style="clear:both;"></div>
-                            <h4>Profile Image: <span>Step 3 - 4</span></h4>
-                              <div class="form-group image-upload">
-                                  <div class="setting image_picker">
-                                      <br/>
-                                      <h3 class="text-center">Upload Profile Image</h3>
-                                      <div class="settings_wrap">
-                                          <label class="drop_target">
-                                              <div class="image_preview"></div>
-                                              <input id="inputFile2" type="file"/>
-                                          </label>
-                                          <div class="settings_actions vertical"><a class="disabled"
-                                                                                    data-action="remove_current_image"><i
-                                                  class="fa fa-trash" aria-hidden="true"></i> Remove Image</a>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="checkbox">
-                                  <label>
-                                      <input type="checkbox"> Yes, show this image on my profile.
-                                  </label>
-                              </div>-->
+                                            <h4>Profile Image: <span>Step 3 - 4</span></h4>
+                                              <div class="form-group image-upload">
+                                                  <div class="setting image_picker">
+                                                      <br/>
+                                                      <h3 class="text-center">Upload Profile Image</h3>
+                                                      <div class="settings_wrap">
+                                                          <label class="drop_target">
+                                                              <div class="image_preview"></div>
+                                                              <input id="inputFile2" type="file"/>
+                                                          </label>
+                                                          <div class="settings_actions vertical"><a class="disabled"
+                                                                                                    data-action="remove_current_image"><i
+                                                                  class="fa fa-trash" aria-hidden="true"></i> Remove Image</a>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="checkbox">
+                                                  <label>
+                                                      <input type="checkbox"> Yes, show this image on my profile.
+                                                  </label>
+                                              </div>-->
                             <h3>EDUCATION &amp; PROFESSION</h3>
                             <div class="row form-group">
 
                                 <div class="col-sm-6">
                                     <select name="highest_degree" id="highest_degree"
-                                            class="form-control requiredDD txt_wizard">
+                                        class="form-control requiredDD txt_wizard">
                                         <option selected="selected" value="">Select Highest Education</option>
                                         <OPTION VALUE='10+2/Senior Secondary School'>10+2/Senior Secondary School
                                         </Option>
@@ -1183,8 +1175,7 @@
                                 <div class="col-sm-6">
                                     <div class="textbox_containner">
                                         <input type="text" editable="false" name="college_name" autocomplete="off"
-                                               class="animate_txt " id="college_name"
-                                               placeholder="College/School Name">
+                                            class="animate_txt " id="college_name" placeholder="College/School Name">
                                         <label class="animate_placeholder" for="college_name">College/School
                                             Name</label>
                                     </div>
@@ -1192,65 +1183,64 @@
                             </div>
                             <div class="row form-group">
                                 <div class="col-sm-6">
-                                    {{--<div class="textbox_containner">--}}
-                                    {{--<input type="text" editable="false" name="ug_education" autocomplete="off"--}}
-                                    {{--class="animate_txt required" id="ug_education"--}}
-                                    {{--placeholder="UG Highest Degree">--}}
-                                    {{--<label class="animate_placeholder" for="ug_education">UG Education<span--}}
-                                    {{--class="rq_color">*</span></label>--}}
-                                    {{--</div>--}}
-                                    {{--<select name="ug_education" id="ug_education"--}}
-                                    {{--class="form-control requiredDD txt_wizard">--}}
-                                    {{--<option selected="selected" value="">Select UG Highest Education</option>--}}
-                                    {{--<OPTION VALUE='10+2/Senior Secondary School'>10+2/Senior Secondary School--}}
-                                    {{--</Option>--}}
-                                    {{--<OPTION VALUE='CA'>CA</Option>--}}
-                                    {{--<OPTION VALUE='CS'>CS</Option>--}}
-                                    {{--<OPTION VALUE='Diploma'>Diploma</Option>--}}
-                                    {{--<OPTION VALUE='ICWA'>ICWA</Option>--}}
-                                    {{--<OPTION VALUE='PhD'>PhD</Option>--}}
-                                    {{--<OPTION VALUE='Bachelors - Engineering/ Computers'>Bachelors - Engineering/--}}
-                                    {{--Computers--}}
-                                    {{--</Option>--}}
-                                    {{--<OPTION VALUE='Masters - Engineering/ Computers'>Masters - Engineering/--}}
-                                    {{--Computers--}}
-                                    {{--</Option>--}}
-                                    {{--<OPTION VALUE='Bachelors - Arts/ Science/ Commerce/ Others'>Bachelors - Arts/--}}
-                                    {{--Science/ Commerce/ Others--}}
-                                    {{--</Option>--}}
-                                    {{--<OPTION VALUE='Masters - Arts/ Science/ Commerce/ Others'>Masters - Arts/--}}
-                                    {{--Science/ Commerce/ Others--}}
-                                    {{--</Option>--}}
-                                    {{--<OPTION VALUE='Management - BBA/ MBA/ Others'>Management - BBA/ MBA/ Others--}}
-                                    {{--</Option>--}}
-                                    {{--<OPTION VALUE='Medicine - General/ Dental/ Surgeon/ Others'>Medicine - General/--}}
-                                    {{--Dental/ Surgeon/ Others--}}
-                                    {{--</Option>--}}
-                                    {{--<OPTION VALUE='Legal - BL/ ML/ LLB/ LLM/ Others'>Legal - BL/ ML/ LLB/ LLM/--}}
-                                    {{--Others--}}
-                                    {{--</Option>--}}
-                                    {{--<OPTION VALUE='Service - IAS/ IPS/ Others'>Service - IAS/ IPS/ Others</Option>--}}
-                                    {{--<OPTION VALUE='Higher Secondary/ Secondary'>Higher Secondary/ Secondary</Option>--}}
-                                    {{--<OPTION VALUE='Others'>Others</Option>--}}
-                                    {{--<OPTION VALUE='Medicine - General/ Dental/ Surgeon/Engineering/CA/ Others'>--}}
-                                    {{--Medicine - General/ Dental/ Surgeon/Engineering/CA/ Others--}}
-                                    {{--</Option>--}}
-                                    {{--</select>--}}
+                                    {{-- <div class="textbox_containner"> --}}
+                                    {{-- <input type="text" editable="false" name="ug_education" autocomplete="off" --}}
+                                    {{-- class="animate_txt required" id="ug_education" --}}
+                                    {{-- placeholder="UG Highest Degree"> --}}
+                                    {{-- <label class="animate_placeholder" for="ug_education">UG Education<span --}}
+                                    {{-- class="rq_color">*</span></label> --}}
+                                    {{-- </div> --}}
+                                    {{-- <select name="ug_education" id="ug_education" --}}
+                                    {{-- class="form-control requiredDD txt_wizard"> --}}
+                                    {{-- <option selected="selected" value="">Select UG Highest Education</option> --}}
+                                    {{-- <OPTION VALUE='10+2/Senior Secondary School'>10+2/Senior Secondary School --}}
+                                    {{-- </Option> --}}
+                                    {{-- <OPTION VALUE='CA'>CA</Option> --}}
+                                    {{-- <OPTION VALUE='CS'>CS</Option> --}}
+                                    {{-- <OPTION VALUE='Diploma'>Diploma</Option> --}}
+                                    {{-- <OPTION VALUE='ICWA'>ICWA</Option> --}}
+                                    {{-- <OPTION VALUE='PhD'>PhD</Option> --}}
+                                    {{-- <OPTION VALUE='Bachelors - Engineering/ Computers'>Bachelors - Engineering/ --}}
+                                    {{-- Computers --}}
+                                    {{-- </Option> --}}
+                                    {{-- <OPTION VALUE='Masters - Engineering/ Computers'>Masters - Engineering/ --}}
+                                    {{-- Computers --}}
+                                    {{-- </Option> --}}
+                                    {{-- <OPTION VALUE='Bachelors - Arts/ Science/ Commerce/ Others'>Bachelors - Arts/ --}}
+                                    {{-- Science/ Commerce/ Others --}}
+                                    {{-- </Option> --}}
+                                    {{-- <OPTION VALUE='Masters - Arts/ Science/ Commerce/ Others'>Masters - Arts/ --}}
+                                    {{-- Science/ Commerce/ Others --}}
+                                    {{-- </Option> --}}
+                                    {{-- <OPTION VALUE='Management - BBA/ MBA/ Others'>Management - BBA/ MBA/ Others --}}
+                                    {{-- </Option> --}}
+                                    {{-- <OPTION VALUE='Medicine - General/ Dental/ Surgeon/ Others'>Medicine - General/ --}}
+                                    {{-- Dental/ Surgeon/ Others --}}
+                                    {{-- </Option> --}}
+                                    {{-- <OPTION VALUE='Legal - BL/ ML/ LLB/ LLM/ Others'>Legal - BL/ ML/ LLB/ LLM/ --}}
+                                    {{-- Others --}}
+                                    {{-- </Option> --}}
+                                    {{-- <OPTION VALUE='Service - IAS/ IPS/ Others'>Service - IAS/ IPS/ Others</Option> --}}
+                                    {{-- <OPTION VALUE='Higher Secondary/ Secondary'>Higher Secondary/ Secondary</Option> --}}
+                                    {{-- <OPTION VALUE='Others'>Others</Option> --}}
+                                    {{-- <OPTION VALUE='Medicine - General/ Dental/ Surgeon/Engineering/CA/ Others'> --}}
+                                    {{-- Medicine - General/ Dental/ Surgeon/Engineering/CA/ Others --}}
+                                    {{-- </Option> --}}
+                                    {{-- </select> --}}
                                 </div>
-                                {{--<div class="col-sm-6">--}}
-                                {{--<div class="textbox_containner">--}}
-                                {{--<input type="text" editable="false" name="college_name" autocomplete="off"--}}
-                                {{--class="animate_txt " id="college_name"--}}
-                                {{--placeholder="College Name">--}}
-                                {{--<label class="animate_placeholder" for="college_name">College Name</label>--}}
-                                {{--</div>--}}
-                                {{--</div>--}}
+                                {{-- <div class="col-sm-6"> --}}
+                                {{-- <div class="textbox_containner"> --}}
+                                {{-- <input type="text" editable="false" name="college_name" autocomplete="off" --}}
+                                {{-- class="animate_txt " id="college_name" --}}
+                                {{-- placeholder="College Name"> --}}
+                                {{-- <label class="animate_placeholder" for="college_name">College Name</label> --}}
+                                {{-- </div> --}}
+                                {{-- </div> --}}
                             </div>
                             <div class="row form-group">
 
                                 <div class="col-sm-6">
-                                    <select name="occupation" id="occupation"
-                                            class="form-control requiredDD txt_wizard">
+                                    <select name="occupation" id="occupation" class="form-control requiredDD txt_wizard">
                                         <option selected="selected" value="">Select Occupation</option>
                                         <OPTION VALUE='Accounts/Finance Professional '>Accounts/Finance Professional
                                         </Option>
@@ -1340,21 +1330,20 @@
                                         <OPTION VALUE='Technician '>Technician</Option>
                                         <OPTION VALUE='Unemployed'>Unemployed</Option>
                                     </select>
-                                    {{--<div class="textbox_containner">--}}
-                                    {{--<input type="text" editable="false" name="occupation" autocomplete="off"--}}
-                                    {{--class="animate_txt required" id="occupation"--}}
-                                    {{--placeholder="Occupation">--}}
-                                    {{--<label class="animate_placeholder" for="occupation">Occupation<span--}}
-                                    {{--class="rq_color">*</span></label>--}}
-                                    {{--</div>--}}
+                                    {{-- <div class="textbox_containner"> --}}
+                                    {{-- <input type="text" editable="false" name="occupation" autocomplete="off" --}}
+                                    {{-- class="animate_txt required" id="occupation" --}}
+                                    {{-- placeholder="Occupation"> --}}
+                                    {{-- <label class="animate_placeholder" for="occupation">Occupation<span --}}
+                                    {{-- class="rq_color">*</span></label> --}}
+                                    {{-- </div> --}}
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="textbox_containner">
                                         <input type="text" editable="false" name="job_location" autocomplete="off"
-                                               class="animate_txt " id="job_location"
-                                               placeholder="Job Location">
+                                            class="animate_txt " id="job_location" placeholder="Job Location">
                                         <label class="animate_placeholder" for="job_location">Job Location<span
-                                                    class="rq_color">*</span></label>
+                                                class="rq_color">*</span></label>
                                     </div>
 
                                 </div>
@@ -1363,20 +1352,16 @@
                             <div class="row form-group">
                                 <div class="col-sm-6">
                                     <div class="textbox_containner txt_area">
-                                        <textarea type="text" editable="false" name="occupation_detail"
-                                                  autocomplete="off"
-                                                  class="animate_txt" id="occupation_detail"
-                                                  placeholder="Occupation Details" rows="3"></textarea>
+                                        <textarea type="text" editable="false" name="occupation_detail" autocomplete="off" class="animate_txt"
+                                            id="occupation_detail" placeholder="Occupation Details" rows="3"></textarea>
                                         <label class="animate_placeholder" for="occupation_detail">Occupation
                                             Details</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="textbox_containner txt_area">
-                                        <textarea type="text" editable="false" name="education_detail"
-                                                  autocomplete="off"
-                                                  class="animate_txt" id="education_detail"
-                                                  placeholder="Education Details" rows="3"></textarea>
+                                        <textarea type="text" editable="false" name="education_detail" autocomplete="off" class="animate_txt"
+                                            id="education_detail" placeholder="Education Details" rows="3"></textarea>
                                         <label class="animate_placeholder" for="education_detail">Education
                                             Details</label>
                                     </div>
@@ -1387,7 +1372,7 @@
                             <div class="row form-group">
                                 <div class="col-sm-6">
                                     <select name="anual_income" id="anual_income"
-                                            class="form-control requiredDD txt_wizard" style="width:100%">
+                                        class="form-control requiredDD txt_wizard" style="width:100%">
                                         <option selected="selected" value="Any">Doesn't Matter</option>
                                         <option>Nill</option>
                                         <option>Under Rs.50,000</option>
@@ -1459,8 +1444,7 @@
                                 <div class="col-sm-6">
                                     <div class="textbox_containner">
                                         <input type="text" editable="false" name="weight" autocomplete="off"
-                                               class="animate_txt " id="weight"
-                                               placeholder="Weight">
+                                            class="animate_txt " id="weight" placeholder="Weight">
                                         <label class="animate_placeholder" for="weight">Weight</label>
                                     </div>
                                 </div>
@@ -1479,7 +1463,7 @@
                             <div class="row form-group">
                                 <div class="col-sm-6">
                                     <select name="blood_group" class="form-control  txt_wizard" type="text"
-                                            id="blood_group1">
+                                        id="blood_group1">
                                         <option value="Not mentioned" selected="selected"> Select Blood Group</option>
                                         <option value="O+">O+</option>
                                         <option value="A+">A+</option>
@@ -1517,27 +1501,23 @@
                         <fieldset style="display: none;">
                             <!-- Progress Bar -->
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped active" role="progressbar"
-                                     aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="80"
+                                    aria-valuemin="0" aria-valuemax="100" style="width: 80%">
                                 </div>
                             </div>
                             <div class="row form-group">
                                 <div class="col-sm-6">
                                     <div class="textbox_containner txt_area">
-                                        <textarea type="text" editable="false" name="father_occupation"
-                                                  autocomplete="off"
-                                                  class="animate_txt required" id="father_occupation"
-                                                  placeholder="Father Occupation" rows="3"></textarea>
+                                        <textarea type="text" editable="false" name="father_occupation" autocomplete="off" class="animate_txt required"
+                                            id="father_occupation" placeholder="Father Occupation" rows="3"></textarea>
                                         <label class="animate_placeholder" for="father_occupation">Father
                                             Occupation<span class="rq_color">*</span></label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="textbox_containner txt_area">
-                                        <textarea type="text" editable="false" name="mother_occupation"
-                                                  autocomplete="off"
-                                                  class="animate_txt" id="mother_occupation"
-                                                  placeholder="Mother Occupation" rows="3"></textarea>
+                                        <textarea type="text" editable="false" name="mother_occupation" autocomplete="off" class="animate_txt"
+                                            id="mother_occupation" placeholder="Mother Occupation" rows="3"></textarea>
                                         <label class="animate_placeholder" for="mother_occupation">Mother
                                             Occupation</label>
                                     </div>
@@ -1592,9 +1572,7 @@
                                 <div class="col-sm-6">
                                     <div class="textbox_containner">
                                         <input type="text" name="father_side_gotra" autocomplete="off"
-                                               class="animate_txt "
-                                               id="father_side_gotra"
-                                               placeholder="Father side gotra">
+                                            class="animate_txt " id="father_side_gotra" placeholder="Father side gotra">
                                         <label class="animate_placeholder" for="father_side_gotra">Paternal
                                             Gotra</label>
                                     </div>
@@ -1602,9 +1580,7 @@
                                 <div class="col-sm-6">
                                     <div class="textbox_containner">
                                         <input type="text" editable="false" name="mother_side_gotra" autocomplete="off"
-                                               class="animate_txt "
-                                               id="mother_side_gotra"
-                                               placeholder="Mother side gotra">
+                                            class="animate_txt " id="mother_side_gotra" placeholder="Mother side gotra">
                                         <label class="animate_placeholder" for="mother_side_gotra">Maternal
                                             Gotra</label>
                                     </div>
@@ -1644,8 +1620,7 @@
                                     </select>
                                 </div>
                                 <div class="col-sm-6">
-                                    <select name="family_income" id="family_income"
-                                            class="form-control txt_wizard">
+                                    <select name="family_income" id="family_income" class="form-control txt_wizard">
                                         <option selected="selected" value="">FAMILY INCOME</option>
                                         <option value="Upto INR 1 Lakh" label="Upto INR 1 Lakh">Upto INR 1 Lakh</option>
                                         <option value="INR 1 Lakh to 2 Lakh" label="INR 1 Lakh to 2 Lakh">INR 1 Lakh to
@@ -1654,8 +1629,8 @@
                                         <option value="INR 2 Lakh to 4 Lakh" label="INR 2 Lakh to 4 Lakh">INR 2 Lakh to
                                             4 Lakh
                                         </option>
-                                        <option value="INR 4 Lakh to 7 Lakh" label="INR 4 Lakh to 7 Lakh"
-                                        >INR 4 Lakh to 7 Lakh
+                                        <option value="INR 4 Lakh to 7 Lakh" label="INR 4 Lakh to 7 Lakh">INR 4 Lakh to 7
+                                            Lakh
                                         </option>
                                         <option value="INR 7 Lakh to 10 Lakh" label="INR 7 Lakh to 10 Lakh">INR 7 Lakh
                                             to 10 Lakh
@@ -1694,17 +1669,15 @@
                             <div class="row form-group">
                                 <div class="col-sm-6">
                                     <div class="textbox_containner">
-                                        <input type="text" name="f_based" autocomplete="off"
-                                               class="animate_txt " id="f_based"
-                                               placeholder="Family Based Out Of">
+                                        <input type="text" name="f_based" autocomplete="off" class="animate_txt "
+                                            id="f_based" placeholder="Family Based Out Of">
                                         <label class="animate_placeholder" for="f_based">Family Based Out Of</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="textbox_containner txt_area">
-                                        <textarea type="text" editable="false" name="about_family" autocomplete="off"
-                                                  class="animate_txt" id="about_family"
-                                                  placeholder="About Family" rows="3"></textarea>
+                                        <textarea type="text" editable="false" name="about_family" autocomplete="off" class="animate_txt" id="about_family"
+                                            placeholder="About Family" rows="3"></textarea>
                                         <label class="animate_placeholder" for="about_family">About Family</label>
                                     </div>
                                 </div>
@@ -1719,117 +1692,113 @@
                             <!-- Progress Bar -->
                             <div class="progress">
                                 <div class="progress-bar progress-bar-striped active" role="progressbar"
-                                     aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                                 </div>
                             </div>
-                            {{--<div class="row form-group">--}}
-                            {{--<div class="col-sm-6">--}}
-                            {{--<select name="diet" class="form-control requiredDD txt_wizard">--}}
-                            {{--<option value="">Eating Habit*</option>--}}
-                            {{--<option selected="" value="Vegetarian">Vegetarian</option>--}}
-                            {{--<option value="Non vegetarian">Non Vegetarian</option>--}}
-                            {{--</select>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-sm-6">--}}
-                            {{--<select name="body_type" class="form-control requiredDD txt_wizard">--}}
-                            {{--<option value="">Body Type*</option>--}}
-                            {{--<option selected="" value="Average">Average</option>--}}
-                            {{--<option value="Athletic">Athletic</option>--}}
-                            {{--<option value="Slim">Slim</option>--}}
-                            {{--<option value="Heavy">Heavy</option>--}}
-                            {{--</select>--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="row form-group">--}}
-                            {{--<div class="col-sm-6">--}}
-                            {{--<select name="drinking_habit" class="form-control requiredDD txt_wizard">--}}
-                            {{--<option value="">Drinking Habits*</option>--}}
-                            {{--<option value="1">Yes</option>--}}
-                            {{--<option selected="" value="0">No</option>--}}
-                            {{--</select>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-sm-6">--}}
-                            {{--<select name="smoking_habit" class="form-control requiredDD txt_wizard">--}}
-                            {{--<option value="">Smoking Habits*</option>--}}
-                            {{--<option value="1">Yes</option>--}}
-                            {{--<option selected="" value="0">No</option>--}}
-                            {{--</select>--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="row form-group">--}}
-                            {{--<div class="col-sm-6">--}}
-                            {{--<div class="textbox_containner">--}}
-                            {{--<input type="text" editable="false" name="weight" autocomplete="off"--}}
-                            {{--class="animate_txt " id="weight"--}}
-                            {{--placeholder="Weight">--}}
-                            {{--<label class="animate_placeholder" for="weight">Weight</label>--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-sm-6">--}}
-                            {{--<select name="complexion" class="form-control requiredDD txt_wizard">--}}
-                            {{--<option value="">Select Complexion</option>--}}
-                            {{--<option selected="" value="Very fair">Very fair</option>--}}
-                            {{--<option value="Fair">Fair</option>--}}
-                            {{--<option value="Wheatish">Wheatish</option>--}}
-                            {{--<option value="Wheatish Brown">Wheatish Brown</option>--}}
-                            {{--<option value="Brown">Brown</option>--}}
-                            {{--<option value="Dark">Dark</option>--}}
-                            {{--</select>--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="row form-group">--}}
-                            {{--<div class="col-sm-6">--}}
-                            {{--<select name="blood_group" class="form-control txt_wizard" type="text"--}}
-                            {{--id="blood_group">--}}
-                            {{--<option value="Not mentioned" selected="selected"> Select Blood Group</option>--}}
-                            {{--<option value="O+">O+</option>--}}
-                            {{--<option value="A+">A+</option>--}}
-                            {{--<option value="B+">B+</option>--}}
-                            {{--<option value="O-">O-</option>--}}
-                            {{--<option value="A-">A-</option>--}}
-                            {{--<option value="AB+">AB+</option>--}}
-                            {{--<option value="B-">B-</option>--}}
-                            {{--<option value="AB-">AB-</option>--}}
-                            {{--<option value="A1B+">A1B+</option>--}}
-                            {{--<option value="A1B-">A1B-</option>--}}
-                            {{--<option value="A2B+">A2B+</option>--}}
-                            {{--<option value="A2B-">A2B-</option>--}}
-                            {{--<option value="A1+">A1+</option>--}}
-                            {{--<option value="A1-">A1-</option>--}}
-                            {{--<option value="A2+">A2+</option>--}}
-                            {{--<option value="A2-">A2-</option>--}}
-                            {{--</select>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-sm-6">--}}
-                            {{--<select id="p_physical" class="form-control txt_wizard" name="p_physical">--}}
-                            {{--<option value="" selected="selected">Physical Status</option>--}}
-                            {{--<option value="Normal">Normal</option>--}}
-                            {{--<option value="Physically challenged">Physically challenged</option>--}}
-                            {{--<option value="Does not matter">Does not matter</option>--}}
-                            {{--</select>--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
-                            {{--@php--}}
-                            {{--$states =  \Illuminate\Support\Facades\DB::table('statelist')->distinct()->get();--}}
-                            {{--@endphp--}}
+                            {{-- <div class="row form-group"> --}}
+                            {{-- <div class="col-sm-6"> --}}
+                            {{-- <select name="diet" class="form-control requiredDD txt_wizard"> --}}
+                            {{-- <option value="">Eating Habit*</option> --}}
+                            {{-- <option selected="" value="Vegetarian">Vegetarian</option> --}}
+                            {{-- <option value="Non vegetarian">Non Vegetarian</option> --}}
+                            {{-- </select> --}}
+                            {{-- </div> --}}
+                            {{-- <div class="col-sm-6"> --}}
+                            {{-- <select name="body_type" class="form-control requiredDD txt_wizard"> --}}
+                            {{-- <option value="">Body Type*</option> --}}
+                            {{-- <option selected="" value="Average">Average</option> --}}
+                            {{-- <option value="Athletic">Athletic</option> --}}
+                            {{-- <option value="Slim">Slim</option> --}}
+                            {{-- <option value="Heavy">Heavy</option> --}}
+                            {{-- </select> --}}
+                            {{-- </div> --}}
+                            {{-- </div> --}}
+                            {{-- <div class="row form-group"> --}}
+                            {{-- <div class="col-sm-6"> --}}
+                            {{-- <select name="drinking_habit" class="form-control requiredDD txt_wizard"> --}}
+                            {{-- <option value="">Drinking Habits*</option> --}}
+                            {{-- <option value="1">Yes</option> --}}
+                            {{-- <option selected="" value="0">No</option> --}}
+                            {{-- </select> --}}
+                            {{-- </div> --}}
+                            {{-- <div class="col-sm-6"> --}}
+                            {{-- <select name="smoking_habit" class="form-control requiredDD txt_wizard"> --}}
+                            {{-- <option value="">Smoking Habits*</option> --}}
+                            {{-- <option value="1">Yes</option> --}}
+                            {{-- <option selected="" value="0">No</option> --}}
+                            {{-- </select> --}}
+                            {{-- </div> --}}
+                            {{-- </div> --}}
+                            {{-- <div class="row form-group"> --}}
+                            {{-- <div class="col-sm-6"> --}}
+                            {{-- <div class="textbox_containner"> --}}
+                            {{-- <input type="text" editable="false" name="weight" autocomplete="off" --}}
+                            {{-- class="animate_txt " id="weight" --}}
+                            {{-- placeholder="Weight"> --}}
+                            {{-- <label class="animate_placeholder" for="weight">Weight</label> --}}
+                            {{-- </div> --}}
+                            {{-- </div> --}}
+                            {{-- <div class="col-sm-6"> --}}
+                            {{-- <select name="complexion" class="form-control requiredDD txt_wizard"> --}}
+                            {{-- <option value="">Select Complexion</option> --}}
+                            {{-- <option selected="" value="Very fair">Very fair</option> --}}
+                            {{-- <option value="Fair">Fair</option> --}}
+                            {{-- <option value="Wheatish">Wheatish</option> --}}
+                            {{-- <option value="Wheatish Brown">Wheatish Brown</option> --}}
+                            {{-- <option value="Brown">Brown</option> --}}
+                            {{-- <option value="Dark">Dark</option> --}}
+                            {{-- </select> --}}
+                            {{-- </div> --}}
+                            {{-- </div> --}}
+                            {{-- <div class="row form-group"> --}}
+                            {{-- <div class="col-sm-6"> --}}
+                            {{-- <select name="blood_group" class="form-control txt_wizard" type="text" --}}
+                            {{-- id="blood_group"> --}}
+                            {{-- <option value="Not mentioned" selected="selected"> Select Blood Group</option> --}}
+                            {{-- <option value="O+">O+</option> --}}
+                            {{-- <option value="A+">A+</option> --}}
+                            {{-- <option value="B+">B+</option> --}}
+                            {{-- <option value="O-">O-</option> --}}
+                            {{-- <option value="A-">A-</option> --}}
+                            {{-- <option value="AB+">AB+</option> --}}
+                            {{-- <option value="B-">B-</option> --}}
+                            {{-- <option value="AB-">AB-</option> --}}
+                            {{-- <option value="A1B+">A1B+</option> --}}
+                            {{-- <option value="A1B-">A1B-</option> --}}
+                            {{-- <option value="A2B+">A2B+</option> --}}
+                            {{-- <option value="A2B-">A2B-</option> --}}
+                            {{-- <option value="A1+">A1+</option> --}}
+                            {{-- <option value="A1-">A1-</option> --}}
+                            {{-- <option value="A2+">A2+</option> --}}
+                            {{-- <option value="A2-">A2-</option> --}}
+                            {{-- </select> --}}
+                            {{-- </div> --}}
+                            {{-- <div class="col-sm-6"> --}}
+                            {{-- <select id="p_physical" class="form-control txt_wizard" name="p_physical"> --}}
+                            {{-- <option value="" selected="selected">Physical Status</option> --}}
+                            {{-- <option value="Normal">Normal</option> --}}
+                            {{-- <option value="Physically challenged">Physically challenged</option> --}}
+                            {{-- <option value="Does not matter">Does not matter</option> --}}
+                            {{-- </select> --}}
+                            {{-- </div> --}}
+                            {{-- </div> --}}
+                            {{-- @php --}}
+                            {{-- $states =  \Illuminate\Support\Facades\DB::table('statelist')->distinct()->get(); --}}
+                            {{-- @endphp --}}
                             <h3>Basic details</h3>
                             <div class="row form-group">
                                 <div class="col-sm-6">
                                     <div class="col-sm-6">
                                         <div class="textbox_containner">
-                                            <input type="number" min="18" max="90" name="p_agefrom"
-                                                   autocomplete="off"
-                                                   class="animate_txt " id="p_agefrom"
-                                                   placeholder="From Age">
+                                            <input type="number" min="18" max="90" name="p_agefrom" autocomplete="off"
+                                                class="animate_txt " id="p_agefrom" placeholder="From Age">
                                             <label class="animate_placeholder" for="p_agefrom">From Age</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="textbox_containner">
-                                            <input type="number" min="18" max="90" name="p_ageto"
-                                                   autocomplete="off"
-                                                   class="animate_txt " id="p_ageto"
-                                                   placeholder="To Age">
+                                            <input type="number" min="18" max="90" name="p_ageto" autocomplete="off"
+                                                class="animate_txt " id="p_ageto" placeholder="To Age">
                                             <label class="animate_placeholder" for="p_ageto">To Age</label>
                                         </div>
                                     </div>
@@ -1837,7 +1806,7 @@
                                 <div class="col-sm-6">
                                     <div class="col-sm-6">
                                         <select name="p_heightfrom" id="Partner_heightfromid"
-                                                class="form-control txt_wizard">
+                                            class="form-control txt_wizard">
                                             <option selected="selected" value="">- Select Height From -</option>
                                             <option value="3ft.5in-105cm">3ft.5in-105cm</option>
                                             <option value="3ft.6in-107cm">3ft.6in-107cm</option>
@@ -1886,8 +1855,7 @@
                                         </select>
                                     </div>
                                     <div class="col-sm-6">
-                                        <select name="p_heightto" id="Partner_heighttoid"
-                                                class="form-control  txt_wizard">
+                                        <select name="p_heightto" id="Partner_heighttoid" class="form-control  txt_wizard">
                                             <option selected="selected" value="">- Select Height To -</option>
                                             <option value="3ft.5in-105cm">3ft.5in-105cm</option>
                                             <option value="3ft.6in-107cm">3ft.6in-107cm</option>
@@ -1939,8 +1907,7 @@
                             </div>
                             <div class="row form-group">
                                 <div class="col-sm-6">
-                                    <select id="Material_status" name="p_status"
-                                            class="form-control  txt_wizard">
+                                    <select id="Material_status" name="p_status" class="form-control  txt_wizard">
                                         <option value="Never married">Never Married</option>
                                         <option value="Divorced">Divorced</option>
                                         <option value="Widowed">Widowed</option>
@@ -1948,8 +1915,7 @@
                                     </select>
                                 </div>
                                 <div class="col-sm-6">
-                                    <select id="children" name="p_children"
-                                            class="form-control  txt_wizard">
+                                    <select id="children" name="p_children" class="form-control  txt_wizard">
                                         <option selected="">Have Children</option>
                                         <option value="no">No</option>
                                         <option value="yes">Yes</option>
@@ -1962,8 +1928,8 @@
                                 <div class="col-sm-6">
                                     <select name="p_state" class="form-control txt_wizard " id="p_state">
                                         <option value="">Select State</option>
-                                        @foreach($states as $state)
-                                            <option value="{{$state->state}}">{{$state->state}}</option>
+                                        @foreach ($states as $state)
+                                            <option value="{{ $state->state }}">{{ $state->state }}</option>
                                         @endforeach
                                     </select>
 
@@ -1983,9 +1949,8 @@
                             <div class="row form-group">
                                 <div class="col-sm-6">
 
-                                    <select name="p_language" class="form-control txt_wizard "
-                                            id="MotherTongue_partner"
-                                            class="form-control txt_wizard">
+                                    <select name="p_language" class="form-control txt_wizard " id="MotherTongue_partner"
+                                        class="form-control txt_wizard">
                                         <option selected="">Mother Tongue</option>
                                         <option value="English">English</option>
                                         <option value="French">French</option>
@@ -2008,8 +1973,7 @@
                                     </select>
                                 </div>
                                 <div class="col-sm-6">
-                                    <select name="p_religion" class="form-control requiredDD txt_wizard "
-                                            id="p_religion">
+                                    <select name="p_religion" class="form-control requiredDD txt_wizard " id="p_religion">
                                         <option selected="selected" value="Any">Select Religion</option>
                                         <option value="Hindu">Hindu</option>
                                         <option value="Muslim">Muslim</option>
@@ -2030,8 +1994,7 @@
                             <div class="row form-group">
 
                                 <div class="col-sm-6">
-                                    <select name="p_caste" class="form-control requiredDD  txt_wizard"
-                                            id="p_caste">
+                                    <select name="p_caste" class="form-control requiredDD  txt_wizard" id="p_caste">
                                         <option selected value="">Select caste</option>
                                         <option value="Adi Dravida">Adi Dravida</option>
                                         <option value="Agarwal">Agarwal</option>
@@ -2445,8 +2408,7 @@
                             <h3>Education &amp; Work</h3>
                             <div class="row form-group">
                                 <div class="col-sm-6">
-                                    <select name="p_education" id="p_education"
-                                            class="form-control txt_wizard ">
+                                    <select name="p_education" id="p_education" class="form-control txt_wizard ">
                                         <option selected="selected">Highest Education</option>
                                         <OPTION VALUE='Any'>Any
                                         </Option>
@@ -2488,8 +2450,7 @@
                                     </select>
                                 </div>
                                 <div class="col-sm-6">
-                                    <select name="p_salary" id="annual_income_partner"
-                                            class="form-control  txt_wizard">
+                                    <select name="p_salary" id="annual_income_partner" class="form-control  txt_wizard">
                                         <option selected="selected" value="0" label="Select">Annual Income</option>
                                         <option value="Any" label="Any">Any
                                         </option>
@@ -2506,7 +2467,7 @@
                                             4 Lakh
                                         </option>
                                         <option value="INR 4 Lakh to 7 Lakh" label="INR 4 Lakh to 7 Lakh"
-                                                selected="selected">INR 4 Lakh to 7 Lakh
+                                            selected="selected">INR 4 Lakh to 7 Lakh
                                         </option>
                                         <option value="INR 7 Lakh to 10 Lakh" label="INR 7 Lakh to 10 Lakh">INR 7
                                             Lakh
@@ -2548,8 +2509,7 @@
 
                             <div class="row form-group">
                                 <div class="col-sm-6">
-                                    <select name="p_occupation" id="p_occupation"
-                                            class="form-control  txt_wizard">
+                                    <select name="p_occupation" id="p_occupation" class="form-control  txt_wizard">
                                         <option selected="selected" value="">Select Occupation</option>
                                         <OPTION VALUE='Any'>Any</Option>
                                         <OPTION VALUE='Manager'>Manager</Option>
@@ -2646,8 +2606,7 @@
                             <h3>Lifestyle</h3>
                             <div class="row form-group">
                                 <div class="col-sm-6">
-                                    <select id="Material_status-Partner" name="p_physical"
-                                            class="form-control txt_wizard">
+                                    <select id="Material_status-Partner" name="p_physical" class="form-control txt_wizard">
                                         <option selected="">Physical Status</option>
                                         <option value="Normal">Normal</option>
                                         <option value="Physically challenged">Physically challenged</option>
@@ -2665,7 +2624,7 @@
 
                                 </div>
                             </div>
-                            {{--/**************************10-10-18****************************/--}}
+                            {{-- /**************************10-10-18****************************/ --}}
                             <div class="row form-group">
                                 <div class="col-sm-6">
                                     <select name="diet" class="form-control requiredDD txt_wizard">
@@ -2704,8 +2663,7 @@
                                 <div class="col-sm-6">
                                     <div class="textbox_containner">
                                         <input type="text" editable="false" name="weight" autocomplete="off"
-                                               class="animate_txt " id="weight1"
-                                               placeholder="Weight">
+                                            class="animate_txt " id="weight1" placeholder="Weight">
                                         <label class="animate_placeholder" for="weight">Weight</label>
                                     </div>
                                 </div>
@@ -2724,7 +2682,7 @@
                             <div class="row form-group">
                                 <div class="col-sm-6">
                                     <select name="blood_group" class="form-control  txt_wizard" type="text"
-                                            id="blood_group">
+                                        id="blood_group">
                                         <option value="Not mentioned" selected="selected"> Select Blood Group</option>
                                         <option value="O+">O+</option>
                                         <option value="A+">A+</option>
@@ -2753,14 +2711,13 @@
                                     </select>
                                 </div>
                             </div>
-                            {{--/**************************10-10-18****************************/--}}
+                            {{-- /**************************10-10-18****************************/ --}}
 
                             <div class="form-wizard-buttons">
                                 <button type="button" class="btn btn-previous">Previous</button>
-                                <input type="button" id="" onclick="register_get();" class="btn btn-submit"
-                                       value="Done">
+                                <input type="button" id="" onclick="register_get();" class="btn btn-submit" value="Done">
                                 <input type="submit" id="submit_reg" style="display:none;" class="btn btn-submit"
-                                       value="Done">
+                                    value="Done">
                             </div>
                         </fieldset>
                     </div>
@@ -2768,12 +2725,13 @@
             </form>
         </div>
     </section>
-    <script type="text/javascript" src="{{url('js/validation.js')}}"></script>
-    {{--    <script src="{{url('js/jquery-3.2.1.min.js')}}"></script>--}}
-    @if(session()->has('message'))
+    <script type="text/javascript" src="{{ url('js/validation.js') }}"></script>
+    {{-- <script src="{{url('js/jquery-3.2.1.min.js')}}"></script> --}}
+    @if (session()->has('message'))
         <script type="text/javascript">
-            if ('{{session()->get('message')}}' == 'Registration has been successful...please verify your account by entering verification code') {
-                setTimeout(function () {
+            if ('{{ session()->get('message') }}' ==
+                'Registration has been successful...please verify your account by entering verification code') {
+                setTimeout(function() {
                     ShowLoginSignup('verify');
                     swal("Success", "{{ session()->get('message') }}", "success");
                 }, 500);
@@ -2781,9 +2739,9 @@
         </script>
     @endif
     <script>
-
         function register_get() {
-            if ($('#p_caste').val() == '0' || $('#p_manglik').val() == '' || $('#p_occupation').val() == '' || $('#compl').val() == '' || $('#shabit').val() == '' || $('#dhabit').val() == '') {
+            if ($('#p_caste').val() == '0' || $('#p_manglik').val() == '' || $('#p_occupation').val() == '' || $('#compl')
+                .val() == '' || $('#shabit').val() == '' || $('#dhabit').val() == '') {
                 swal("Oops!", "Please enter all required fields", "info");
             } else {
                 swal({
@@ -2842,7 +2800,7 @@
         //            });
         //        });
 
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('.dob').datepicker({
                 format: "dd-MM-yyyy",
                 maxViewMode: 2,
@@ -2850,61 +2808,61 @@
                 daysOfWeekHighlighted: "0",
                 autoclose: true,
             });
-            {{--$("#regfrm").on('submit', function (e) {--}}
-            {{--if ($('#p_city').val() == '' || $('#p_caste').val() == '' || $('#p_manglik').val() == '' || $('#p_occupation').val() == '' || $('#compl').val() == ''|| $('#shabit').val() == ''|| $('#dhabit').val() == '') {--}}
-            {{--swal("Oops!", "Please enter all required fields", "info");--}}
-            {{--} else {--}}
-            {{--swal({--}}
-            {{--title: "Are you sure?",--}}
-            {{--text: "You want to submit this post...!",--}}
-            {{--icon: "warning",--}}
-            {{--buttons: true,--}}
-            {{--dangerMode: true,--}}
-            {{--}).then((okk) => {--}}
-            {{--if (okk) {--}}
-            {{--$.ajax({--}}
-            {{--type: 'POST',--}}
-            {{--url: "{{ url('register') }}",--}}
-            {{--data: new FormData(this),--}}
-            {{--contentType: false,--}}
-            {{--cache: false,--}}
-            {{--processData: false,--}}
-            {{--beforeSend: function () {--}}
-            {{--$('#regfrm').prop('disabled', 'disabled');--}}
-            {{--swal("Wait!", "Registration process is running...", "info");--}}
-            {{--},--}}
-            {{--success: function (data) {--}}
-            {{--//                                console.log(data);--}}
-            {{--//                                alert('Y');--}}
-            {{--$('#regfrm').prop('disabled', false);--}}
-            {{--if (data == 'Registration Success') {--}}
-            {{--// ShowLoginSignup('verify');--}}
-            {{--swal("Success", "Registration successful...you will be redirected in 3 seconds", "success");--}}
-            {{--setTimeout(function () {--}}
-            {{--window.location.href = "{{url('profile_photo')}}";--}}
-            {{--//http://localhost:8000/candidate_list 12 Jan--}}
-            {{--}, 2000);--}}
-            {{--} else if (data == 'Email Already') {--}}
-            {{--swal("Oops!", "Email already exist", "info");--}}
-            {{--} else {--}}
-            {{--swal("Oops!", "Contact no already exist", "info");--}}
-            {{--}--}}
-            {{--},--}}
-            {{--error: function (xhr, status, error) {--}}
-            {{--$('#regfrm').prop('disabled', false);--}}
-            {{--console.log(xhr.responseText);--}}
-            {{--//                                alert('N');--}}
-            {{--swal("Oops!", "Registration has not been finished...Please try again", "info");--}}
-            {{--}--}}
-            {{--});--}}
-            {{--}--}}
-            {{--});--}}
-            {{--}--}}
+            {{-- $("#regfrm").on('submit', function (e) { --}}
+            {{-- if ($('#p_city').val() == '' || $('#p_caste').val() == '' || $('#p_manglik').val() == '' || $('#p_occupation').val() == '' || $('#compl').val() == ''|| $('#shabit').val() == ''|| $('#dhabit').val() == '') { --}}
+            {{-- swal("Oops!", "Please enter all required fields", "info"); --}}
+            {{-- } else { --}}
+            {{-- swal({ --}}
+            {{-- title: "Are you sure?", --}}
+            {{-- text: "You want to submit this post...!", --}}
+            {{-- icon: "warning", --}}
+            {{-- buttons: true, --}}
+            {{-- dangerMode: true, --}}
+            {{-- }).then((okk) => { --}}
+            {{-- if (okk) { --}}
+            {{-- $.ajax({ --}}
+            {{-- type: 'POST', --}}
+            {{-- url: "{{ url('register') }}", --}}
+            {{-- data: new FormData(this), --}}
+            {{-- contentType: false, --}}
+            {{-- cache: false, --}}
+            {{-- processData: false, --}}
+            {{-- beforeSend: function () { --}}
+            {{-- $('#regfrm').prop('disabled', 'disabled'); --}}
+            {{-- swal("Wait!", "Registration process is running...", "info"); --}}
+            {{-- }, --}}
+            {{-- success: function (data) { --}}
+            {{-- //                                console.log(data); --}}
+            {{-- //                                alert('Y'); --}}
+            {{-- $('#regfrm').prop('disabled', false); --}}
+            {{-- if (data == 'Registration Success') { --}}
+            {{-- // ShowLoginSignup('verify'); --}}
+            {{-- swal("Success", "Registration successful...you will be redirected in 3 seconds", "success"); --}}
+            {{-- setTimeout(function () { --}}
+            {{-- window.location.href = "{{url('profile_photo')}}"; --}}
+            {{-- //http://localhost:8000/candidate_list 12 Jan --}}
+            {{-- }, 2000); --}}
+            {{-- } else if (data == 'Email Already') { --}}
+            {{-- swal("Oops!", "Email already exist", "info"); --}}
+            {{-- } else { --}}
+            {{-- swal("Oops!", "Contact no already exist", "info"); --}}
+            {{-- } --}}
+            {{-- }, --}}
+            {{-- error: function (xhr, status, error) { --}}
+            {{-- $('#regfrm').prop('disabled', false); --}}
+            {{-- console.log(xhr.responseText); --}}
+            {{-- //                                alert('N'); --}}
+            {{-- swal("Oops!", "Registration has not been finished...Please try again", "info"); --}}
+            {{-- } --}}
+            {{-- }); --}}
+            {{-- } --}}
+            {{-- }); --}}
+            {{-- } --}}
 
-            {{--});--}}
+            {{-- }); --}}
         });
-        $(document).ready(function () {
-            $('#contact').focusout(function () {
+        $(document).ready(function() {
+            $('#contact').focusout(function() {
                 var txt_val = $(this).val();
                 if (txt_val.trim() == '') {
                     $('#contact').val('');
@@ -2913,23 +2871,27 @@
                         type: "get",
                         contentType: "application/json; charset=utf-8",
                         url: "{{ url('checkno') }}",
-                        data: {contact: txt_val},
-//                    data: '{"formData":"' + formData + '", "rc":"' + txt_val + '"}',
-                        success: function (data) {
+                        data: {
+                            contact: txt_val
+                        },
+                        //                    data: '{"formData":"' + formData + '", "rc":"' + txt_val + '"}',
+                        success: function(data) {
                             if (data == 'already') {
-                                swal("Oops....", "Contact no already exist please use different contact no", "info");
+                                swal("Oops....",
+                                    "Contact no already exist please use different contact no",
+                                    "info");
                                 $('#contact').val('');
                             }
                         },
-                        error: function (xhr, status, error) {
-//                    alert('xhr.responseText');
-//                        $('#mobile').html(xhr.responseText);
+                        error: function(xhr, status, error) {
+                            //                    alert('xhr.responseText');
+                            //                        $('#mobile').html(xhr.responseText);
                         }
                     });
                 }
             });
 
-            $('#email').focusout(function () {
+            $('#email').focusout(function() {
                 var txt_val = $(this).val();
                 if (txt_val.trim() == '') {
                     $('#email').val('');
@@ -2938,17 +2900,21 @@
                         type: "get",
                         contentType: "application/json; charset=utf-8",
                         url: "{{ url('checkemail') }}",
-                        data: {email: txt_val},
-//                    data: '{"formData":"' + formData + '", "rc":"' + txt_val + '"}',
-                        success: function (data) {
+                        data: {
+                            email: txt_val
+                        },
+                        //                    data: '{"formData":"' + formData + '", "rc":"' + txt_val + '"}',
+                        success: function(data) {
                             if (data == 'already') {
-                                swal("Oops....", "Email already exist please use different email", "info");
+                                swal("Oops....",
+                                    "Email already exist please use different email", "info"
+                                );
                                 $('#email').val('');
                             }
                         },
-                        error: function (xhr, status, error) {
-//                    alert('xhr.responseText');
-//                        $('#mobile').html(xhr.responseText);
+                        error: function(xhr, status, error) {
+                            //                    alert('xhr.responseText');
+                            //                        $('#mobile').html(xhr.responseText);
                         }
                     });
                 }
@@ -2956,6 +2922,5 @@
 
 
         });
-
     </script>
 @stop

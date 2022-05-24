@@ -181,7 +181,7 @@
                                     <i class="mdi mdi-account"></i>Login
                                 </li>
                                 <li>
-                                    <a href="{{url('registration')}}">
+                                    <a href="{{url('a_registration')}}">
                                         <i class="mdi mdi-account-edit"></i>Registration</a></li>
                                 <!-- <li >
                                      <i class="mdi mdi-currency-inr"></i>Payment</li>-->

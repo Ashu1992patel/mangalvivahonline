@@ -1,6 +1,6 @@
 @extends('web.web_master')
 
-@section('title','Mangal Mandap : My Profile')
+@section('title','Mangal Vivah :My Profile')
 @section('head')
     <style type="text/css">
         .textbox_containner {

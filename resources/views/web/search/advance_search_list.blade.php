@@ -1,6 +1,6 @@
 @extends('web.web_master')
 
-@section('title','Mangal Mandap : Advance List')
+@section('title','Mangal Vivah :Advance List')
 @section('head')
     @include('web.usage.lightbox_plugin')
 @stop

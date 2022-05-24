@@ -1,6 +1,6 @@
 @extends('web.web_master')
 
-@section('title','Mangal Mandap : View Candidate')
+@section('title','Mangal Vivah :View Candidate')
 @section('head')
     @include('web.usage.lightbox_plugin')
     <link rel="stylesheet" href="{{url('css/bootstrap2.min.css')}}"/>
