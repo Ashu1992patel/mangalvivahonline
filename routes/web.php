@@ -18,31 +18,17 @@ use Illuminate\Support\Facades\Route;
 // Testing Route
 Route::get('uat', 'TestingController@index');
 
-Route::get('access', function () {
-    return view('login');
-});
+Route::get('access', 'AuthenticationController@access');
 
-Route::get('test', function () {
-    return view('web.profile.test');
-});
+Route::get('test', 'AuthenticationController@test');
 
-Route::GET('logout', function () {
-    session_start();
-    $_SESSION['user_master'] = null;
-    return redirect('/');
-});
-Route::GET('adminlogout', function () {
-    session_start();
-    $_SESSION['admin_master'] = null;
-    return redirect('/access');
-});
+Route::get('logout', 'AuthenticationController@logout');
+Route::get('adminlogout', 'AuthenticationController@adminlogout');
 
 Route::get('create-category', 'CategoryController@create');
 Route::post('create-category', 'CategoryController@store');
 
-Route::GET('change_password', function () {
-    return view('change_password');
-});
+Route::get('change_password', 'AuthenticationController@changePassword');
 Route::POST('reset_password', 'LoginMasterController@reset_password');
 Route::GET('user_master/{id}/resetPassword', 'LoginMasterController@reset');
 
