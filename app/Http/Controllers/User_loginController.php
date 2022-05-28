@@ -199,7 +199,7 @@ class User_loginController extends Controller
                 try {
                     $curl = curl_init();
                     $data = array();
-                    $data['api_id'] = "mangalmandap2016@gmail.com";
+                    $data['api_id'] = "info@mangalvivahonline.com";
                     $data['api_password'] = "4177c413ae0f193f5f0295c8636438471544597882";
                     $data['sms_type'] = "Transactional";
                     $data['sms_encoding'] = "text";
@@ -508,7 +508,7 @@ MMMTRI";
 
             $curl = curl_init();
             $data = array();
-            $data['api_id'] = "mangalmandap2016@gmail.com";
+            $data['api_id'] = "info@mangalvivahonline.com";
             $data['api_password'] = "4177c413ae0f193f5f0295c8636438471544597882";
             $data['sms_type'] = "Transactional";
             $data['sms_encoding'] = "text";

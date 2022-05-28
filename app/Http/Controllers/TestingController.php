@@ -15,7 +15,7 @@ class TestingController extends Controller
             'body' => 'This is for testing email using smtp'
         ];
 
-        Mail::to('mangalmandap2016@gmail.com')->send(new \App\Mail\CustomMail($details));
+        Mail::to('info@mangalvivahonline.com')->send(new \App\Mail\CustomMail($details));
 
         dd("Email is Sent.");
 
@@ -31,7 +31,7 @@ class TestingController extends Controller
 
         // https://control.textlocal.in/docs/api/code/post/
         // Authorisation details.
-        $username = "mangalmandap2016@gmail.com";
+        $username = "info@mangalvivahonline.com";
         $hash = "6c2c3cb77f0ab0de02d4ca2ab1727ba6d6a718f639275ea2845c4d34b77f5b79";
 
         // Config variables. Consult http://api.textlocal.in/docs for more info.
@@ -59,7 +59,7 @@ class TestingController extends Controller
         // Message details
         // 	$numbers = urlencode('918770745851');
         // 	$sender = urlencode('TXTLCL');
-        // 	$username = urlencode('mangalmandap2016@gmail.com');
+        // 	$username = urlencode('info@mangalvivahonline.com');
         // 	$message = rawurlencode('This is your message');
         // 	$hash='6c2c3cb77f0ab0de02d4ca2ab1727ba6d6a718f639275ea2845c4d34b77f5b79'
 
@@ -78,7 +78,7 @@ class TestingController extends Controller
         // return $response;
 
         // Textlocal.in
-        // Username : mangalmandap2016@gmail.com
+        // Username : info@mangalvivahonline.com
         // Password : Mangal2021@@@@@@
 
         dd('Vikas');

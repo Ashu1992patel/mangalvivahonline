@@ -23,7 +23,7 @@
                             <em class="mdi mdi-phone-classic"></em><span> + 91 7354933132
                     </span></div>-->
           <div class="address_block">
-            <em class="mdi mdi-email-alert"></em>mangalmandap2016@gmail.com
+            <em class="mdi mdi-email-alert"></em>info@mangalvivahonline.com
           </div>
         </address>
       </div>

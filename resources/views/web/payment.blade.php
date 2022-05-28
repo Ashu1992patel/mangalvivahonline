@@ -94,14 +94,14 @@
           {{-- our website behind the Cheque / Demand Draft..</p> --}}
           {{-- <p class="f-color">3) Please mail/courier your draft or cheque to <b>Mangal Vivah Services</b>.</p> --}}
           {{-- <p class="f-color"><strong>Phone: +91 7354933132</strong>.</p> --}}
-          {{-- <p class="f-color"><strong>Email: mangalmandap2016@gmail.com</strong>.</p> --}}
+          {{-- <p class="f-color"><strong>Email: info@mangalvivahonline.com</strong>.</p> --}}
           <hr />
           <p class="f-color">
             You can direct deposit the cheque, cash or transfer payment online at any branch of State Bank of
             India.
             Please send / inform about your payment (User Id, Cheque No. or online reference no.) by an email /
             SMS
-            or via Phone. Or you can mail at MangalMandap2016@gmail.com.</p>
+            or via Phone. Or you can mail at info@mangalvivahonline.com.</p>
           <hr />
 
 
@@ -112,12 +112,12 @@
               <img src="{{ url('images/SBI-Logo.png') }}" style="width: 100%; height: 50%" alt="">
             </div>
             <!--    <div class="col-sm-6">
-                              <p class="f-color"><strong>Account Number :- 36751854429</strong></p>
-                              <p class="f-color"><strong>Account Name :- Mangal Vivah Matrimony</strong></p>
-                              <p class="f-color"><strong>IFSC Code :- SBIN0001398</strong></p>
-                              <p class="f-color"><strong>Branch Name :- TULARAM CHOWK, STATE BANK OF INDIA, JABALPUR</strong></p>
-                          </div>
-                          -->
+                                <p class="f-color"><strong>Account Number :- 36751854429</strong></p>
+                                <p class="f-color"><strong>Account Name :- Mangal Vivah Matrimony</strong></p>
+                                <p class="f-color"><strong>IFSC Code :- SBIN0001398</strong></p>
+                                <p class="f-color"><strong>Branch Name :- TULARAM CHOWK, STATE BANK OF INDIA, JABALPUR</strong></p>
+                            </div>
+                            -->
           </div>
           <hr />
         </div>

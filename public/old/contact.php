@@ -171,7 +171,7 @@ function MM_swapImage() { //v3.0
                                   </tr <tr>
                                   <td align="center" valign="middle"><img src="images/web_icon.jpg" width="25" height="22" /></td>
                                   <td>
-                                    <p>E-mail: <a href="mailto:mangalmandap2016@gmail.com" class="forgot">mangalmandap2016@gmail.com</a></p>
+                                    <p>E-mail: <a href="mailto:info@mangalvivahonline.com" class="forgot">info@mangalvivahonline.com</a></p>
                                   </td>
 
 

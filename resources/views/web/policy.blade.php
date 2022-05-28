@@ -83,12 +83,12 @@
       {{-- <b>Cancel and Refund</b>
             <hr />
             <p class="f-color">
-               In Mangal Vivah Cancel of Regitration policy, customer can apply for cancel site registration after that, we will consider that request then we will solve the complaint regarding refund registration of amount, if we can not solve that complaint so finally we will cancel your registration and return your registration of amount, this process will be valid in 24 hours from the payment of the date. for this concern customer contact with us on mangalmandap2016@gmail.com.</p>
+               In Mangal Vivah Cancel of Regitration policy, customer can apply for cancel site registration after that, we will consider that request then we will solve the complaint regarding refund registration of amount, if we can not solve that complaint so finally we will cancel your registration and return your registration of amount, this process will be valid in 24 hours from the payment of the date. for this concern customer contact with us on info@mangalvivahonline.com.</p>
                
                
                <p class="f-color">
               In Mangalmandap Refund policy if, we are not solving the issue regarding site registration and refund payment, then finally we will cancel the registration and 
- refund registration of amount in three working days except (Saturday or sunday) for this concern customer contact with us on mangalmandap2016@gmail.com.</p>
+ refund registration of amount in three working days except (Saturday or sunday) for this concern customer contact with us on info@mangalvivahonline.com.</p>
             <hr/> --}}
 
       <b>Online Conduct</b>
