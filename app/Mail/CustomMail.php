@@ -29,7 +29,7 @@ class CustomMail extends Mailable
      */
     public function build()
     {
-        return $this->from(['address' => 'support@mangalmandap.com', 'name' => 'Mangal Mandap'])
+        return $this->from(['address' => 'support@mangalvivahonline.com', 'name' => 'Mangal Vivah'])
             ->subject($this->details['subject'])
             ->view('emails.custom-mail');
         // return $this->view('view.name');

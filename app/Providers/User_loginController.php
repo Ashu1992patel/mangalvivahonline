@@ -19,13 +19,13 @@ class User_loginController extends Controller
         $contact = trim(request('contact'));
         $useremail = Profiles::where(['email' => request('email_id')])->first();
         $usermob = Profiles::where(['contact' => $contact])->first();
-//        echo 'hi'.$contact;
+        //        echo 'hi'.$contact;
         if (isset($useremail)) {
             return 'Email Already';
-//            return redirect('registration')->withInput()->withErrors('Email is Already Linked With Another Account!!!!');
+            //            return redirect('registration')->withInput()->withErrors('Email is Already Linked With Another Account!!!!');
         } elseif (isset($usermob)) {
             return 'Mobile Already';
-//            return redirect('registration')->withInput()->withErrors('Mobile Number Already Linked With Another Account!!!!!!');
+            //            return redirect('registration')->withInput()->withErrors('Mobile Number Already Linked With Another Account!!!!!!');
         } else {
             $reg = new Profiles();
             $reg->email = request('email');
@@ -34,8 +34,8 @@ class User_loginController extends Controller
             $reg->gender = request('gender');
             if (request('name') != null)
                 $reg->name = request('name');
-//            if (request('create_for') != null)
-//                $reg->create_for = request('create_for');
+            //            if (request('create_for') != null)
+            //                $reg->create_for = request('create_for');
             if (request('dob') != null)
                 $reg->dob = Carbon::parse(request('dob'))->format('Y-m-d');
             if (request('height') != null)
@@ -134,7 +134,7 @@ class User_loginController extends Controller
 
             file_get_contents("http://api.bulksmsplans.com/api/SendSMS?api_id=API63344742229&api_password=delhi123&sms_type=T&encoding=T&sender_id=MMMTRI&phonenumber=$reg->contact&textmessage=Dear%20Mangal%20Mandap%20user%20Your%20verification%20code%20is%20$reg->otp");
             return 'Registration Success';
-//            return redirect('/')->with('message', 'Registration has been successful...please verify your account by entering verification code');
+            //            return redirect('/')->with('message', 'Registration has been successful...please verify your account by entering verification code');
         }
     }
 
@@ -192,7 +192,7 @@ class User_loginController extends Controller
             $user_master->otp = $otp;
             $user_master->save();
             file_get_contents("http://api.bulksmsplans.com/api/SendSMS?api_id=API63344742229&api_password=delhi123&sms_type=T&encoding=T&sender_id=MMMTRI&phonenumber=$user_master->contact&textmessage=Dear%20user%20verification%20code%20to%20verify%20MangalMandap%20account%20is%20$otp");
-//            $_SESSION['user_master'] = $user_master;
+            //            $_SESSION['user_master'] = $user_master;
             echo 'ok';
         } else {
             echo 'Incorrect';
@@ -211,22 +211,22 @@ class User_loginController extends Controller
         if (count($emails) > 0) {
             $mail = new \App\Mail();
             $mail->to = implode(",", $emails);
-            $mail->subject = 'Welcome To Mangal Mandap';
-            $siteurl = 'http://www.mangalmandap.com/';
+            $mail->subject = 'Welcome To Mangal Vivah';
+            $siteurl = 'http://www.mangalvivahonline.com/';
             $username = request('name');
             $salutation = request('gender') == 'male' ? "Mr." : "Ms.";
 
-            $message = '<table width="650" cellpadding="0" cellspacing="0" align="center" style="background-color:#ececec;padding:40px;font-family:sans-serif;overflow:scroll"><tbody><tr><td><table cellpadding="0" cellspacing="0" align="center" width="100%"><tbody><tr><td><div style="line-height:50px;text-align:center;background-color:#fff;border-radius:5px;padding:20px"><a href="' . $siteurl . '" target="_blank" ><img src="' . $siteurl . 'images/mangal_logo.jpg" style="width:100%"></a></div></td></tr><tr><td><div><img src="' . $siteurl . 'images/acknowledgement.jpg" style="height:auto;width:100%;" tabindex="0"><div dir="ltr" style="opacity: 0.01; left: 775px; top: 343px;"><div><div class="aSK J-J5-Ji aYr"></div></div></div></div></td></tr><tr><td style="background-color:#fff;padding:20px;border-radius:0px 0px 5px 5px;font-size:14px"><div style="width:100%"><h1 style="color:#007cc2;text-align:center">Thank you ' . $salutation . ' ' . $username . '</h1><p style="font-size:14px;text-align:center;color:#333;padding:10px 20px 10px 20px">Thank you for your registration in www.mangalmandap.com is Mangal Mandap is a leading Indian matrimonial matchmaking service provider. Our team is committed to provide 360 degree solutions to all prospective Indian brides and grooms for marriage.</p></div></td></tr></tbody></table></td></tr><tr><td style="padding:20px;font-size:12px;color:#797979;text-align:center;line-height:20px;border-radius:5px 5px 0px 0px">DISCLAIMER - The information contained in this electronic message (including any accompanying documents) is solely intended for the information of the addressee(s) not be reproduced or redistributed or passed on directly or indirectly in any form to any other person.</td></tr></tbody></table>';
+            $message = '<table width="650" cellpadding="0" cellspacing="0" align="center" style="background-color:#ececec;padding:40px;font-family:sans-serif;overflow:scroll"><tbody><tr><td><table cellpadding="0" cellspacing="0" align="center" width="100%"><tbody><tr><td><div style="line-height:50px;text-align:center;background-color:#fff;border-radius:5px;padding:20px"><a href="' . $siteurl . '" target="_blank" ><img src="' . $siteurl . 'images/mangal_logo.jpg" style="width:100%"></a></div></td></tr><tr><td><div><img src="' . $siteurl . 'images/acknowledgement.jpg" style="height:auto;width:100%;" tabindex="0"><div dir="ltr" style="opacity: 0.01; left: 775px; top: 343px;"><div><div class="aSK J-J5-Ji aYr"></div></div></div></div></td></tr><tr><td style="background-color:#fff;padding:20px;border-radius:0px 0px 5px 5px;font-size:14px"><div style="width:100%"><h1 style="color:#007cc2;text-align:center">Thank you ' . $salutation . ' ' . $username . '</h1><p style="font-size:14px;text-align:center;color:#333;padding:10px 20px 10px 20px">Thank you for your registration in www.mangalvivahonline.com is Mangal Vivah is a leading Indian matrimonial matchmaking service provider. Our team is committed to provide 360 degree solutions to all prospective Indian brides and grooms for marriage.</p></div></td></tr></tbody></table></td></tr><tr><td style="padding:20px;font-size:12px;color:#797979;text-align:center;line-height:20px;border-radius:5px 5px 0px 0px">DISCLAIMER - The information contained in this electronic message (including any accompanying documents) is solely intended for the information of the addressee(s) not be reproduced or redistributed or passed on directly or indirectly in any form to any other person.</td></tr></tbody></table>';
 
             $mail->body = $message;
             if ($mail->send_mail()) {
-//                return redirect('/')->with('message', 'Registration has been successful1');
+                //                return redirect('/')->with('message', 'Registration has been successful1');
                 //return redirect('mail')->withErrors('Email sent...');
             } else {
-//                return redirect('/')->with('message', 'Registration has been successful0');
+                //                return redirect('/')->with('message', 'Registration has been successful0');
                 //return redirect('mail')->withInput()->withErrors('Something went wrong. Please contact admin');
             }
-//            echo $message;
+            //            echo $message;
         }
         /***********Mail************/
     }
@@ -236,7 +236,7 @@ class User_loginController extends Controller
     {
         $mobile = request('login_mobile');
         $password = request('login_password');
-//        $user = DB::selectOne("SELECT * FROM `profiles` WHERE email = '$mobile' and password = '$password'");
+        //        $user = DB::selectOne("SELECT * FROM `profiles` WHERE email = '$mobile' and password = '$password'");
         $user = Profiles::where(['email' => $mobile, 'password' => $password])->first();
         $otp = rand(100000, 999999);
         if (isset($user)) {
@@ -282,7 +282,7 @@ class User_loginController extends Controller
                     $_SESSION['session_contact'] = null;
                     $_SESSION['otp'] = null;
                     return 'contact_verified';
-                }else{
+                } else {
                     $user_master->is_verified = 1;
                     $user_master->save();
                     $_SESSION['user_master'] = $user_master;
@@ -312,7 +312,6 @@ class User_loginController extends Controller
                 $_SESSION['religion'] = $user->religion;
                 echo 'ok';
             }
-
         } else {
             echo 'Incorrect';
         }
@@ -325,17 +324,17 @@ class User_loginController extends Controller
         if (isset($_SESSION['user_master'])) {
             $reg = Profiles::find($_SESSION['user_master']->id);
             $reg->email = request('email');
-//            if ($reg->contact != request('contact'))
-//                $reg->contact = request('contact');
-//            $reg->password = request('password');
-//            $reg->gender = request('gender');
-//            if (request('gender') != null)
-//                $reg->is_once_gender = 1;
+            //            if ($reg->contact != request('contact'))
+            //                $reg->contact = request('contact');
+            //            $reg->password = request('password');
+            //            $reg->gender = request('gender');
+            //            if (request('gender') != null)
+            //                $reg->is_once_gender = 1;
 
             if (request('name') != null)
                 $reg->name = request('name');
-//            if (request('create_for') != null)
-//                $reg->create_for = request('create_for');
+            //            if (request('create_for') != null)
+            //                $reg->create_for = request('create_for');
             if (request('dob') != null)
                 $reg->dob = Carbon::parse(request('dob'))->format('Y-m-d');
             if (request('height') != null)
@@ -355,7 +354,8 @@ class User_loginController extends Controller
             if (request('mob2') != null)
                 $reg->landline = request('mob2'); //change to landline
             if (request('religion') != null)
-                $reg->religion = request('religion'); $reg->is_once_religion = 1;
+                $reg->religion = request('religion');
+            $reg->is_once_religion = 1;
             if (request('state') != null)
                 $reg->state = request('state');
             if (request('caste') != null)
@@ -432,41 +432,40 @@ class User_loginController extends Controller
                 $cnt = $_SESSION['session_contact'];
                 $reg->otp = $otp;
                 $reg->save();
-                 file_get_contents("http://api.bulksmsplans.com/api/SendSMS?api_id=API63344742229&api_password=delhi123&sms_type=T&encoding=T&sender_id=MMMTRI&phonenumber=$cnt&textmessage=Dear%20Mangal%20Mandap%20user%20Your%20verification%20code%20is%20$otp");
+                file_get_contents("http://api.bulksmsplans.com/api/SendSMS?api_id=API63344742229&api_password=delhi123&sms_type=T&encoding=T&sender_id=MMMTRI&phonenumber=$cnt&textmessage=Dear%20Mangal%20Mandap%20user%20Your%20verification%20code%20is%20$otp");
                 //http://api.bulksmsplans.com/api/SendSMS?api_id=API63344742229&api_password=delhi123&sms_type=T&encoding=T&sender_id=MMMTRI&phonenumber=9584866999&textmessage=test
                 return 'reverify';
             }
             $reg->save();
 
-//            $activate = new ActivateProfile();
-//            $activate->id = $reg->id;
-//            $activate->active = 'no';
-//            $activate->save();
-//
-//            $images = new Images();
-//            $images->id = $reg->id;
-//            $images->save();
-//            return redirect('edit_profile')->with('message', 'Profile has been updated');
+            //            $activate = new ActivateProfile();
+            //            $activate->id = $reg->id;
+            //            $activate->active = 'no';
+            //            $activate->save();
+            //
+            //            $images = new Images();
+            //            $images->id = $reg->id;
+            //            $images->save();
+            //            return redirect('edit_profile')->with('message', 'Profile has been updated');
         } else {
             return redirect('/')->withErrors('Please login first');
         }
-
     }
 
     public function profile_update_admin()
     {
-//        echo request('user_by_admin');
-//        if (isset($_SESSION['user_master'])) {
-//            $reg = Profiles::find(request('user_by_admin'));
+        //        echo request('user_by_admin');
+        //        if (isset($_SESSION['user_master'])) {
+        //            $reg = Profiles::find(request('user_by_admin'));
         $reg = Profiles::find(request('user_by_admin'));
         $reg->email = request('email');
         $reg->contact = request('contact');
-//            $reg->password = request('password');
-//            $reg->gender = request('gender');
+        //            $reg->password = request('password');
+        //            $reg->gender = request('gender');
         if (request('name') != null)
             $reg->name = request('name');
-//        if (request('create_for') != null)
-//            $reg->create_for = request('create_for');
+        //        if (request('create_for') != null)
+        //            $reg->create_for = request('create_for');
         if (request('dob') != null)
             $reg->dob = Carbon::parse(request('dob'))->format('Y-m-d');
         if (request('height') != null)
@@ -551,23 +550,23 @@ class User_loginController extends Controller
             $reg->p_religion = request('p_religion');
         if (request('dob') != null)
             $reg->age = Carbon::parse($reg->dob)->diff(Carbon::now())->format('%y');
-//        $otp = rand(100000, 999999);
-//        $reg->otp = $otp;
-//        $reg->is_verified = 1;
+        //        $otp = rand(100000, 999999);
+        //        $reg->otp = $otp;
+        //        $reg->is_verified = 1;
         $reg->save();
 
-//            $activate = new ActivateProfile();
-//            $activate->id = $reg->id;
-//            $activate->active = 'no';
-//            $activate->save();
-//
-//            $images = new Images();
-//            $images->id = $reg->id;
-//            $images->save();
-//            return redirect('edit_profile')->with('message', 'Profile has been updated');
-//        } else {
-//            return redirect('/')->withErrors('Please login first');
-//        }
+        //            $activate = new ActivateProfile();
+        //            $activate->id = $reg->id;
+        //            $activate->active = 'no';
+        //            $activate->save();
+        //
+        //            $images = new Images();
+        //            $images->id = $reg->id;
+        //            $images->save();
+        //            return redirect('edit_profile')->with('message', 'Profile has been updated');
+        //        } else {
+        //            return redirect('/')->withErrors('Please login first');
+        //        }
 
     }
 
@@ -728,6 +727,6 @@ class User_loginController extends Controller
         return view('adminview.show_user_full', ['user_data' => $user_data]);
     }
 
-//ALTER TABLE `images` CHANGE `pic1` `pic1` VARCHAR(30) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL;
-//ALTER TABLE `profiles` ADD `college_name` VARCHAR(100) NULL DEFAULT NULL AFTER `education_partner`;
+    //ALTER TABLE `images` CHANGE `pic1` `pic1` VARCHAR(30) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL;
+    //ALTER TABLE `profiles` ADD `college_name` VARCHAR(100) NULL DEFAULT NULL AFTER `education_partner`;
 }

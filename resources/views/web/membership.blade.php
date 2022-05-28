@@ -194,7 +194,7 @@
                                                      
                                                       <!--  <div class="get-contacts-detail">
                                                             <p>Account Number :- 36751854429</p>
-                                                            <p>Account Name :- Mangal Mandap Matrimony</p>
+                                                            <p>Account Name :- Mangal Vivah Matrimony</p>
                                                             <p>IFSC Code :- SBIN0001398</p>
                                                             <p>Branch Name :- TULARAM CHOWK, STATE BANK OF INDIA,
                                                                 JABALPUR</p>

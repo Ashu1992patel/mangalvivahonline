@@ -205,7 +205,7 @@ class User_loginController extends Controller
                     $data['sms_encoding'] = "text";
                     $data['sender'] = "MMMTRI";
                     $data['number'] = "$reg->contact";
-                    $data['message'] = "Dear Mangal Mandap User,
+                    $data['message'] = "Dear Mangal Vivah User,
 Your verification code is $reg->otp
 MMMTRI";
                     $data['template_id'] = "1407162367398093914";
@@ -236,9 +236,9 @@ MMMTRI";
                 try {
                     $details = [
                         'otp' => $reg->otp,
-                        'subject' => "MANGALMANDAP.COM PROFILE VERIFICATION",
+                        'subject' => "mangalvivahonline.com PROFILE VERIFICATION",
                         'title' => "Dear $reg->name",
-                        'body' => "Thanks for getting started with mangal mandap! It's our pleasure to have you part of our family. You are almost ready to resume enjoying at mangal mandap. We need a little more information to complete your registration reverification, including confirmation of your email address to proceed further.",
+                        'body' => "Thanks for getting started with Mangal Vivah! It's our pleasure to have you part of our family. You are almost ready to resume enjoying at Mangal Vivah. We need a little more information to complete your registration reverification, including confirmation of your email address to proceed further.",
                         'page' => "registration",
                         'instructions' => "We are always around and love hearing from you. Please get in touch if you want to ask something or even just to provide your valuable feedback"
                     ];
@@ -514,7 +514,7 @@ MMMTRI";
             $data['sms_encoding'] = "text";
             $data['sender'] = "MMMTRI";
             $data['number'] = "$user_master->contact";
-            $data['message'] = "You recently requested to reset your password for your mangal mandap account. Your OTP has been generated for login is $otp.
+            $data['message'] = "You recently requested to reset your password for your Mangal Vivah account. Your OTP has been generated for login is $otp.
             MMMTRI";
             $data['template_id'] = "1407162374592201928";
 
@@ -541,9 +541,9 @@ MMMTRI";
             try {
                 $details = [
                     'otp' => $otp,
-                    'subject' => "Your Mangal Mandap One Time Password (OTP)",
+                    'subject' => "Your Mangal Vivah One Time Password (OTP)",
                     'title' => "Dear $user_master->name",
-                    'body' => "You recently requested to reset your password for your mangal mandap account. A one time password has been generated for you, please use '$otp' for the login again.",
+                    'body' => "You recently requested to reset your password for your Mangal Vivah account. A one time password has been generated for you, please use '$otp' for the login again.",
                     'page' => "forget-password",
                     'instructions' => "If you did not request an OTP, You can safely ignore this email. Only a person with access to your email can reset your account password."
                 ];
@@ -592,12 +592,12 @@ MMMTRI";
         if (count($emails) > 0) {
             $mail = new Mail();
             $mail->to = implode(",", $emails);
-            $mail->subject = 'Welcome To Mangal Mandap';
-            $siteurl = 'https://www.mangalmandap.com//';
+            $mail->subject = 'Welcome To Mangal Vivah';
+            $siteurl = 'https://www.mangalvivahonline.com//';
             $username = ucfirst($name);
             $salutation = $gender == 'male' ? "Mr." : "Ms.";
 
-            $message = '<table width="650" cellpadding="0" cellspacing="0" align="center" style="background-color:#ececec;padding:40px;font-family:sans-serif;overflow:scroll"><tbody><tr><td><table cellpadding="0" cellspacing="0" align="center" width="100%"><tbody><tr><td><div style="line-height:50px;text-align:center;background-color:#fff;border-radius:5px;padding:20px"><a href="' . $siteurl . '" target="_blank" ><img src="' . $siteurl . 'images/mangal_logo.jpg" style="width:100%"></a></div></td></tr><tr><td><div><img src="' . $siteurl . 'images/acknowledgement.jpg" style="height:auto;width:100%;" tabindex="0"><div dir="ltr" style="opacity: 0.01; left: 775px; top: 343px;"><div><div class="aSK J-J5-Ji aYr"></div></div></div></div></td></tr><tr><td style="background-color:#fff;padding:20px;border-radius:0px 0px 5px 5px;font-size:14px"><div style="width:100%"><h1 style="color:#007cc2;text-align:center">Thank you ' . $salutation . ' ' . $username . '</h1><p style="font-size:14px;text-align:center;color:#333;padding:10px 20px 10px 20px">Thank you for your registration in www.mangalmandap.com is Mangal Mandap is a leading Indian matrimonial matchmaking service provider. Our team is committed to provide 360 degree solutions to all prospective Indian brides and grooms for marriage.</p></div></td></tr></tbody></table></td></tr><tr><td style="padding:20px;font-size:12px;color:#797979;text-align:center;line-height:20px;border-radius:5px 5px 0px 0px">DISCLAIMER - The information contained in this electronic message (including any accompanying documents) is solely intended for the information of the 
+            $message = '<table width="650" cellpadding="0" cellspacing="0" align="center" style="background-color:#ececec;padding:40px;font-family:sans-serif;overflow:scroll"><tbody><tr><td><table cellpadding="0" cellspacing="0" align="center" width="100%"><tbody><tr><td><div style="line-height:50px;text-align:center;background-color:#fff;border-radius:5px;padding:20px"><a href="' . $siteurl . '" target="_blank" ><img src="' . $siteurl . 'images/mangal_logo.jpg" style="width:100%"></a></div></td></tr><tr><td><div><img src="' . $siteurl . 'images/acknowledgement.jpg" style="height:auto;width:100%;" tabindex="0"><div dir="ltr" style="opacity: 0.01; left: 775px; top: 343px;"><div><div class="aSK J-J5-Ji aYr"></div></div></div></div></td></tr><tr><td style="background-color:#fff;padding:20px;border-radius:0px 0px 5px 5px;font-size:14px"><div style="width:100%"><h1 style="color:#007cc2;text-align:center">Thank you ' . $salutation . ' ' . $username . '</h1><p style="font-size:14px;text-align:center;color:#333;padding:10px 20px 10px 20px">Thank you for your registration in www.mangalvivahonline.com is Mangal Vivah is a leading Indian matrimonial matchmaking service provider. Our team is committed to provide 360 degree solutions to all prospective Indian brides and grooms for marriage.</p></div></td></tr></tbody></table></td></tr><tr><td style="padding:20px;font-size:12px;color:#797979;text-align:center;line-height:20px;border-radius:5px 5px 0px 0px">DISCLAIMER - The information contained in this electronic message (including any accompanying documents) is solely intended for the information of the 
             ee(s) not be reproduced or redistributed or passed on directly or indirectly in any form to any other person.</td></tr></tbody></table>';
 
             $mail->body = $message;
@@ -639,12 +639,12 @@ MMMTRI";
         if (count($emails) > 0) {
             $mail = new \App\Mail();
             $mail->to = implode(",", $emails);
-            $mail->subject = 'Welcome To Mangal Mandap';
-            $siteurl = 'http://www.mangalmandap.com/';
+            $mail->subject = 'Welcome To Mangal Vivah';
+            $siteurl = 'http://www.mangalvivahonline.com/';
             $username = request('name');
             $salutation = request('gender') == 'male' ? "Mr." : "Ms.";
 
-            $message = '<table width="650" cellpadding="0" cellspacing="0" align="center" style="background-color:#ececec;padding:40px;font-family:sans-serif;overflow:scroll"><tbody><tr><td><table cellpadding="0" cellspacing="0" align="center" width="100%"><tbody><tr><td><div style="line-height:50px;text-align:center;background-color:#fff;border-radius:5px;padding:20px"><a href="' . $siteurl . '" target="_blank" ><img src="' . $siteurl . 'images/mangal_logo.jpg" style="width:100%"></a></div></td></tr><tr><td><div><img src="' . $siteurl . 'images/acknowledgement.jpg" style="height:auto;width:100%;" tabindex="0"><div dir="ltr" style="opacity: 0.01; left: 775px; top: 343px;"><div><div class="aSK J-J5-Ji aYr"></div></div></div></div></td></tr><tr><td style="background-color:#fff;padding:20px;border-radius:0px 0px 5px 5px;font-size:14px"><div style="width:100%"><h1 style="color:#007cc2;text-align:center">Thank you ' . $salutation . ' ' . $username . '</h1><p style="font-size:14px;text-align:center;color:#333;padding:10px 20px 10px 20px">Thank you for your registration in www.mangalmandap.com is Mangal Mandap is a leading Indian matrimonial matchmaking service provider. Our team is committed to provide 360 degree solutions to all prospective Indian brides and grooms for marriage.</p></div></td></tr></tbody></table></td></tr><tr><td style="padding:20px;font-size:12px;color:#797979;text-align:center;line-height:20px;border-radius:5px 5px 0px 0px">DISCLAIMER - The information contained in this electronic message (including any accompanying documents) is solely intended for the information of the addressee(s) not be reproduced or redistributed or passed on directly or indirectly in any form to any other person.</td></tr></tbody></table>';
+            $message = '<table width="650" cellpadding="0" cellspacing="0" align="center" style="background-color:#ececec;padding:40px;font-family:sans-serif;overflow:scroll"><tbody><tr><td><table cellpadding="0" cellspacing="0" align="center" width="100%"><tbody><tr><td><div style="line-height:50px;text-align:center;background-color:#fff;border-radius:5px;padding:20px"><a href="' . $siteurl . '" target="_blank" ><img src="' . $siteurl . 'images/mangal_logo.jpg" style="width:100%"></a></div></td></tr><tr><td><div><img src="' . $siteurl . 'images/acknowledgement.jpg" style="height:auto;width:100%;" tabindex="0"><div dir="ltr" style="opacity: 0.01; left: 775px; top: 343px;"><div><div class="aSK J-J5-Ji aYr"></div></div></div></div></td></tr><tr><td style="background-color:#fff;padding:20px;border-radius:0px 0px 5px 5px;font-size:14px"><div style="width:100%"><h1 style="color:#007cc2;text-align:center">Thank you ' . $salutation . ' ' . $username . '</h1><p style="font-size:14px;text-align:center;color:#333;padding:10px 20px 10px 20px">Thank you for your registration in www.mangalvivahonline.com is Mangal Vivah is a leading Indian matrimonial matchmaking service provider. Our team is committed to provide 360 degree solutions to all prospective Indian brides and grooms for marriage.</p></div></td></tr></tbody></table></td></tr><tr><td style="padding:20px;font-size:12px;color:#797979;text-align:center;line-height:20px;border-radius:5px 5px 0px 0px">DISCLAIMER - The information contained in this electronic message (including any accompanying documents) is solely intended for the information of the addressee(s) not be reproduced or redistributed or passed on directly or indirectly in any form to any other person.</td></tr></tbody></table>';
 
             $mail->body = $message;
             if ($mail->send_mail()) {
@@ -928,9 +928,9 @@ MMMTRI";
                 try {
                     $details = [
                         'otp' => $reg->otp,
-                        'subject' => "MANGALMANDAP.COM PROFILE VERIFICATION",
+                        'subject' => "mangalvivahonline.com PROFILE VERIFICATION",
                         'title' => "Dear $reg->name",
-                        'body' => "Thanks for getting started with mangal mandap! It's our pleasure to have you part of our family. You are almost ready to resume enjoying at mangal mandap. We need a little more information to complete your registration reverification, including confirmation of your email address to proceed further.",
+                        'body' => "Thanks for getting started with Mangal Vivah! It's our pleasure to have you part of our family. You are almost ready to resume enjoying at Mangal Vivah. We need a little more information to complete your registration reverification, including confirmation of your email address to proceed further.",
                         'page' => "registration",
                         'instructions' => "We are always around and love hearing from you. Please get in touch if you want to ask something or even just to provide your valuable feedback"
                     ];

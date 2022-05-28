@@ -1,29 +1,29 @@
 <?php
 session_start();
-	include("functions.php");
-	
-	if(isset($_SESSION["me"]))
-		header('Location:home.php');
-	else if(isset($_SESSION["admin"]))
-		header('Location:admin.php');
+include("functions.php");
+
+if (isset($_SESSION["me"]))
+	header('Location:home.php');
+else if (isset($_SESSION["admin"]))
+	header('Location:admin.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
- 
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>MangalMandap | Marriage Center for India | Matrimonial website</title>
-<META name="description" content="MangalMandap is an online Matrimonial portal where peoples find their prospective soulmate.The site where singles become couples.It's free to sign up,so Register NOW!">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>MangalMandap | Marriage Center for India | Matrimonial website</title>
+	<META name="description" content="MangalMandap is an online Matrimonial portal where peoples find their prospective soulmate.The site where singles become couples.It's free to sign up,so Register NOW!">
 
-<meta name="keywords" content="Mangal Mandap,Marriage Center for India,matchmaking, matrimony, matrimony portal, matrimony services, matrimony website,Free Online Indian matrimonial website, Matrimonial, shaadi, marriage,matrimony, vivah, Matrimonials for Central India, Agrawal , Brahmin ,Kayastha ,Rajput ,Punjabi Matrimony, Muslim, Sindhi, Marwari, Jaipur, Bhopal, Delhi, Jabalpur, Bilaspur, Lucknow, Bhilai, Agarwal bride, Brahmin bride, Kayastha bride, Rajput bride, Punjabi bride, Sindhi bride, Marwari bride, Agarwal groom, Brahmin groom, Kayastha groom, Rajput groom, Punjabi groom Sindhi groom, Marwari groom, Free Membership, paid Membership">
+	<meta name="keywords" content="Mangal Vivah,Marriage Center for India,matchmaking, matrimony, matrimony portal, matrimony services, matrimony website,Free Online Indian matrimonial website, Matrimonial, shaadi, marriage,matrimony, vivah, Matrimonials for Central India, Agrawal , Brahmin ,Kayastha ,Rajput ,Punjabi Matrimony, Muslim, Sindhi, Marwari, Jaipur, Bhopal, Delhi, Jabalpur, Bilaspur, Lucknow, Bhilai, Agarwal bride, Brahmin bride, Kayastha bride, Rajput bride, Punjabi bride, Sindhi bride, Marwari bride, Agarwal groom, Brahmin groom, Kayastha groom, Rajput groom, Punjabi groom Sindhi groom, Marwari groom, Free Membership, paid Membership">
 
-<link href="style.css" type="text/css" rel="stylesheet" />
+	<link href="style.css" type="text/css" rel="stylesheet" />
 
-<script src="slideshow.js" type="text/javascript"></script>
+	<script src="slideshow.js" type="text/javascript"></script>
 
-<script type="text/JavaScript">
-<!--
+	<script type="text/JavaScript">
+		<!--
 function MM_preloadimages() { //v3.0
   var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
     var i,j=d.MM_p.length,a=MM_preloadimages.arguments; for(i=0; i<a.length; i++)
@@ -141,100 +141,114 @@ function validateFields(){
 			}
 }
 //-->
-</script>
-<style type="text/css">
-<!--
-.style1 {	color: #8A6676;
-	font-weight: bold;
-	font-size:12px;
-	font-family:Verdana, Arial, Helvetica, sans-serif;
-}
-.style3 {
-	color: #8a6676;
-	font-size: 11px;
-	font-weight:bold;
-}
-.style2 {color: #CD3B79; font-size:12px;}
-.style4 {color: #FFFF00; font-size:10px;}
-.style5 {color: #E72A84}
-.style6 {
-	color: #C94668;
-	font-weight: bold;
-	font-size: 14px;
-}
-.style7 {font-size: 14px}
-.style9 {font-size: 11px}
+	</script>
+	<style type="text/css">
+		<!--
+		.style1 {
+			color: #8A6676;
+			font-weight: bold;
+			font-size: 12px;
+			font-family: Verdana, Arial, Helvetica, sans-serif;
+		}
 
--->
-</style>
+		.style3 {
+			color: #8a6676;
+			font-size: 11px;
+			font-weight: bold;
+		}
+
+		.style2 {
+			color: #CD3B79;
+			font-size: 12px;
+		}
+
+		.style4 {
+			color: #FFFF00;
+			font-size: 10px;
+		}
+
+		.style5 {
+			color: #E72A84
+		}
+
+		.style6 {
+			color: #C94668;
+			font-weight: bold;
+			font-size: 14px;
+		}
+
+		.style7 {
+			font-size: 14px
+		}
+
+		.style9 {
+			font-size: 11px
+		}
+		-->
+	</style>
 </head>
 
 
-              
-				
+
+
 <?php
-	
-	extract($_POST);
-	
-	if(isset($submit))
-	{								
-		$conn= new mysqli("localhost","mangaztt_user","Ajit@@123","mangaztt_marriagedb");
-		if($conn->connect_error)
-		{
-			die("Connection Failed: ". $conn->connect_error);
-		}
-		else
-		{
-			$result= mysqli_query($conn, "select id from profiles where email='$email' or id='$email' and password='$password'");
-			if(mysqli_num_rows($result)==0)
-			{	include("top1.php");
-				include("remaining.php");
-				echo "<script language='Javascript' type='text/javascript'>alert(':-(  Invalid Login Details');</script>";
-				
-			}
-			else
-			{	
-				include("start_session.php");
-				die();								
-								
-			}
+
+extract($_POST);
+
+if (isset($submit)) {
+	$conn = new mysqli("localhost", "mangaztt_user", "Ajit@@123", "mangaztt_marriagedb");
+	if ($conn->connect_error) {
+		die("Connection Failed: " . $conn->connect_error);
+	} else {
+		$result = mysqli_query($conn, "select id from profiles where email='$email' or id='$email' and password='$password'");
+		if (mysqli_num_rows($result) == 0) {
+			include("top1.php");
+			include("remaining.php");
+			echo "<script language='Javascript' type='text/javascript'>alert(':-(  Invalid Login Details');</script>";
+		} else {
+			include("start_session.php");
+			die();
 		}
 	}
-	else{
-		include("top1.php");
-		include("remaining.php");
-	}
+} else {
+	include("top1.php");
+	include("remaining.php");
+}
 ?>
 
-				
-				
-				
-				
-				
-	<!--Start of Tawk.to Script-->
+
+
+
+
+
+<!--Start of Tawk.to Script-->
 <script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/57894cf03daf03937c742256/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
+	var Tawk_API = Tawk_API || {},
+		Tawk_LoadStart = new Date();
+	(function() {
+		var s1 = document.createElement("script"),
+			s0 = document.getElementsByTagName("script")[0];
+		s1.async = true;
+		s1.src = 'https://embed.tawk.to/57894cf03daf03937c742256/default';
+		s1.charset = 'UTF-8';
+		s1.setAttribute('crossorigin', '*');
+		s0.parentNode.insertBefore(s1, s0);
+	})();
 </script>
-<!--End of Tawk.to Script-->			
+<!--End of Tawk.to Script-->
 
 <script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/57894cf03daf03937c742256/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
+	var Tawk_API = Tawk_API || {},
+		Tawk_LoadStart = new Date();
+	(function() {
+		var s1 = document.createElement("script"),
+			s0 = document.getElementsByTagName("script")[0];
+		s1.async = true;
+		s1.src = 'https://embed.tawk.to/57894cf03daf03937c742256/default';
+		s1.charset = 'UTF-8';
+		s1.setAttribute('crossorigin', '*');
+		s0.parentNode.insertBefore(s1, s0);
+	})();
 </script>
 
 </body>
