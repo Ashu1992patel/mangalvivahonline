@@ -466,6 +466,7 @@
     <div class="banner_search_bg">
       <div class="container">
         <form id="searchFilter" method="post" class="banner_search_form">
+        @csrf
           <div class="banner_block_search">
             <em>Looking For</em>
             <select name="gender" class="form-control">

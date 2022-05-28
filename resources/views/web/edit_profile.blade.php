@@ -273,6 +273,7 @@
                 </div>
                 <div class="cand_list_containner">
                     <form class="filter_form">
+                    @csrf
                         {{--<form role="form" id="updatefrm" action="{{url('profile_update')}}" method="post">--}}
                         <div class="updated_box ">
                             <div class="top_heading_box">

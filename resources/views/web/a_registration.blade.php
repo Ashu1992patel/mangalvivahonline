@@ -1097,28 +1097,28 @@
                 </div>
               </div>
               <!--  <div style="clear:both;"></div>
-                                              <h4>Profile Image: <span>Step 3 - 4</span></h4>
-                                                <div class="form-group image-upload">
-                                                    <div class="setting image_picker">
-                                                        <br/>
-                                                        <h3 class="text-center">Upload Profile Image</h3>
-                                                        <div class="settings_wrap">
-                                                            <label class="drop_target">
-                                                                <div class="image_preview"></div>
-                                                                <input id="inputFile2" type="file"/>
-                                                            </label>
-                                                            <div class="settings_actions vertical"><a class="disabled"
-                                                                                                      data-action="remove_current_image"><i
-                                                                    class="fa fa-trash" aria-hidden="true"></i> Remove Image</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> Yes, show this image on my profile.
-                                                    </label>
-                                                </div>-->
+                                                <h4>Profile Image: <span>Step 3 - 4</span></h4>
+                                                  <div class="form-group image-upload">
+                                                      <div class="setting image_picker">
+                                                          <br/>
+                                                          <h3 class="text-center">Upload Profile Image</h3>
+                                                          <div class="settings_wrap">
+                                                              <label class="drop_target">
+                                                                  <div class="image_preview"></div>
+                                                                  <input id="inputFile2" type="file"/>
+                                                              </label>
+                                                              <div class="settings_actions vertical"><a class="disabled"
+                                                                                                        data-action="remove_current_image"><i
+                                                                      class="fa fa-trash" aria-hidden="true"></i> Remove Image</a>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="checkbox">
+                                                      <label>
+                                                          <input type="checkbox"> Yes, show this image on my profile.
+                                                      </label>
+                                                  </div>-->
               <h3>EDUCATION &amp; PROFESSION</h3>
               <div class="row form-group">
 

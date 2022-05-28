@@ -271,6 +271,7 @@
                 </div>
                 <div class="cand_list_containner">
                     <form class="filter_form">
+                    @csrf
                         <input type="hidden" name="user_by_admin" value="{{$user->id}}">
 
                         {{--<form role="form" id="updatefrm" action="{{url('profile_update')}}" method="post">--}}
