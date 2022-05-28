@@ -48,10 +48,10 @@
     }
 
     /*----------------------------------
-                            Macbook pro mockup from:
-                            http://jaredhardy.com/minimal-devices/
+                              Macbook pro mockup from:
+                              http://jaredhardy.com/minimal-devices/
 
-                        ----------------------------------*/
+                          ----------------------------------*/
 
     .md-macbook-pro {
       display: block;
@@ -1083,7 +1083,7 @@
 
     {{-- </div> --}}
     {{-- </div> --}}
-    {{-- </div> --}}Mangal Vivah
+    {{-- </div> --}}
     {{-- </div> --}}
     {{-- </div> --}}
     {{-- <!-- <div id="wrapper"> --}}
