@@ -1,11 +1,9 @@
 <?php
 session_start();
-include("functions.php");
-if (!isset($_SESSION["me"])) {
+include 'functions.php';
+if (!isset($_SESSION['me'])) {
   redirect('index.php');
 }
-
-
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -17,32 +15,30 @@ if (!isset($_SESSION["me"])) {
   <title>Mangal Vivah | Home</title>
 
   <link href="style.css" type="text/css" rel="stylesheet" />
-  <script type="text/JavaScript">
-    <!--
-function MM_preloadimages() { //v3.0
-  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
-    var i,j=d.MM_p.length,a=MM_preloadimages.arguments; for(i=0; i<a.length; i++)
-    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
-}
+  <script type="text/JavaScript"><!--
+          function MM_preloadimages() { //v3.0
+            var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+              var i,j=d.MM_p.length,a=MM_preloadimages.arguments; for(i=0; i<a.length; i++)
+              if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+          }
 
-function MM_swapImgRestore() { //v3.0
-  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
-}
+          function MM_swapImgRestore() { //v3.0
+            var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+          }
 
-function MM_findObj(n, d) { //v4.01
-  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
-    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
-  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
-  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
-  if(!x && d.getElementById) x=d.getElementById(n); return x;
-}
+          function MM_findObj(n, d) { //v4.01
+            var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+              d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+            if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+            for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+            if(!x && d.getElementById) x=d.getElementById(n); return x;
+          }
 
-function MM_swapImage() { //v3.0
-  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
-   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
-}
-//-->
-  </script>
+          function MM_swapImage() { //v3.0
+            var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+             if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+          }
+          //--></script>
   <style type="text/css">
     <!--
     .style26 {
@@ -85,8 +81,8 @@ function MM_swapImage() { //v3.0
                           <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                               <td width="99%" valign="top">&nbsp;<?php
-                                                                  if (isset($_SESSION["me"])) {
-                                                                    echo "<div style='float: left; margin-top: 15px;'>Welcome, <a href='manage.php' title='Manage Account' style='color: white;'><u>" . $_SESSION["me"]["name"] . "</u></a>! (" . $_SESSION["me"]["id"] . ") &nbsp;&nbsp;&nbsp;<a href='logout.php' title='Logout' style='color: white;'>Logout</a></div>";
+                                                                  if (isset($_SESSION['me'])) {
+                                                                    echo "<div style='float: left; margin-top: 15px;'>Welcome, <a href='manage.php' title='Manage Account' style='color: white;'><u>" . $_SESSION['me']['name'] . '</u></a>! (' . $_SESSION['me']['id'] . ") &nbsp;&nbsp;&nbsp;<a href='logout.php' title='Logout' style='color: white;'>Logout</a></div>";
                                                                   } ?></td>
                               <td width="1%" align="right" valign="top"><img src="images/logo_name12.jpg" width="262" height="81" /></td>
                             </tr>
@@ -110,9 +106,12 @@ function MM_swapImage() { //v3.0
                               <td colspan="7"><img src="images/spacer.gif" width="1" height="4" /></td>
                             </tr>
                             <tr>
-                              <td width="10%" align="right" valign="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                              <td width="10%" align="right" valign="top">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              </td>
                               <td width="12%" align="left" valign="top"><a href="home.php" onmouseout=MM_swapImgRestore() onmouseover=MM_swapImage('home','','images/home_h.jpg',1)><img src=images/home.jpg name=home width=103 height=40 border=0 id=home /></a> </td>
-                              <td width="12%" align="left" valign="top"><a target="_blank" href="registration.php" onmouseout=MM_swapImgRestore() onmouseover=MM_swapImage('reg','','images/registration_h.jpg',1)><img src=images/registration.jpg name=reg width=126 height=40 border=0 id=reg /></a> </td>
+                              <td width="12%" align="left" valign="top"><a target="_blank" href="registration.php" onmouseout=MM_swapImgRestore() onmouseover=MM_swapImage('reg','','images/registration_h.jpg',1)><img src=images/registration.jpg name=reg width=126 height=40 border=0 id=reg /></a>
+                              </td>
                               <td width="16%" align="left" valign="top"><a href="home_quick_search.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image22','','images/p_search_h.jpg',1)"><img src="images/p_search.jpg" name="Image22" width="159" height="40" border="0" id="Image22" /></a></td>
                               <td width="14%" align="left" valign="top"><a href="membership.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image23','','images/membership_h.jpg',1)"><img src="images/membership.jpg" name="Image23" width="133" height="40" border="0" id="Image23" /></a></td>
                               <td width="17%" align="left" valign="top"><a href="payment.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image24','','images/payment1_h.jpg',1)"><img src="images/payment1.jpg" name="Image24" width="167" height="40" border="0" id="Image24" /></a></td>
@@ -210,7 +209,9 @@ function MM_swapImage() { //v3.0
                                 </style>
                                 <script language="javascript" type="text/javascript">
                                   function checkOK() {
-                                    if (confirm("Do you want to Delete the member(s) Profile? If you press Yes then you can not access this profile.\nIt will completely remove from our database!"))
+                                    if (confirm(
+                                        "Do you want to Delete the member(s) Profile? If you press Yes then you can not access this profile.\nIt will completely remove from our database!"
+                                      ))
                                       return true;
                                     else
                                       return false;
@@ -227,7 +228,10 @@ function MM_swapImage() { //v3.0
 
                                   function chk4id() {
                                     //alert (event.keyCode);
-                                    if ((event.keyCode == 9) || (event.keyCode == 8) || (event.keyCode == 50) || (event.keyCode == 46) || (event.keyCode == 189) || (event.keyCode == 190) || (event.keyCode == 110) || (event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105) || (event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 37 && event.keyCode <= 40)) {
+                                    if ((event.keyCode == 9) || (event.keyCode == 8) || (event.keyCode == 50) || (event.keyCode == 46) || (event
+                                        .keyCode == 189) || (event.keyCode == 190) || (event.keyCode == 110) || (event.keyCode >= 48 && event.keyCode <=
+                                        57) || (event.keyCode >= 96 && event.keyCode <= 105) || (event.keyCode >= 65 && event.keyCode <= 90) || (event
+                                        .keyCode >= 37 && event.keyCode <= 40)) {
                                       event.returnValue = true;
                                     } else {
                                       event.keyCode = 0;
@@ -237,7 +241,8 @@ function MM_swapImage() { //v3.0
 
                                   function chk4schar() {
                                     //alert (event.keyCode);
-                                    if ((event.keyCode >= 33 && event.keyCode <= 42) || (event.keyCode == 189) || (event.keyCode == 94) || (event.keyCode == 45)) {
+                                    if ((event.keyCode >= 33 && event.keyCode <= 42) || (event.keyCode == 189) || (event.keyCode == 94) || (event
+                                        .keyCode == 45)) {
                                       event.keyCode = 0;
                                       event.returnValue = false;
                                     } else {
@@ -303,22 +308,22 @@ function MM_swapImage() { //v3.0
                                 <table width="95%" border="0" align="left" cellpadding="0" cellspacing="3">
 
                                   <?php
-                                  $conn = new mysqli("localhost", "mangaztt_user", "Ajit@@123", "mangaztt_marriagedb");
+                                  $conn = new mysqli('localhost', 'mangaztt_user', 'Ajit@@123', 'mangaztt_marriagedb');
                                   if ($conn->connect_error) {
-                                    die("Connection Failed: " . $conn->connect_error);
+                                    die('Connection Failed: ' . $conn->connect_error);
                                   } else {
-                                    $check_sql = "SELECT active FROM activate WHERE id=" . $_SESSION["me"]["id"];
+                                    $check_sql = 'SELECT active FROM activate WHERE id=' . $_SESSION['me']['id'];
 
                                     $check = mysqli_fetch_assoc(mysqli_query($conn, $check_sql));
-                                    if ($check["active"] == "no") {
+                                    if ($check['active'] == 'no') {
                                       echo "<center><div style='color: red; font-size: 125%;'>:-(  Your profile is not yet activated! Please confirm payment with the admin.</div></center>";
                                       echo '<script type="text/javascript">alert(":-(  Your profile is not yet activated! Please confirm payment with the admin.");</script>';
-                                    } {
-                                      extract($_POST);
-                                      if (isset($search) || isset($show))
-                                        include("search_by_id.php");
-                                      else
-                                        include("profiles.php");
+                                    }
+                                    extract($_POST);
+                                    if (isset($search) || isset($show)) {
+                                      include 'search_by_id.php';
+                                    } else {
+                                      include 'profiles.php';
                                     }
                                   }
 
