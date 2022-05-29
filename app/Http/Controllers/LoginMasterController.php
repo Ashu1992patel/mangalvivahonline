@@ -26,17 +26,16 @@ class LoginMasterController extends Controller
             $temp_user = UserMaster::find($user->id);
             $temp_user->last_login = Carbon::now();
             $temp_user->save();
-//            echo "hi";
+            //            echo "hi";
             return redirect('dashboard');
-//            return view('dashboard.admin')->with('user_master', $user);
+            //            return view('dashboard.admin')->with('user_master', $user);
         } else
             return redirect('access')->withInput()->withErrors(array('message' => 'UserName or password Invalid'));
-
     }
 
     public function login_user()
     {
-//        echo "cd";
+        //        echo "cd";
         if (isset($_SESSION['admin_master'])) {
             $user = $_SESSION['admin_master'];
             if ($user->role_master_id == 1) {
@@ -84,7 +83,7 @@ class LoginMasterController extends Controller
             $user = UserMaster::find(request('user_id'));
             $user->password = md5(request('new_password'));
             $user->save();
-//            $_SESSION['user_master'] = $user;
+            //            $_SESSION['user_master'] = $user;
             return redirect()->back()->with('message', 'Password has been reset successfully...!');
         } else
             return redirect('user_master')->withInput()->withErrors(array('message' => 'Passwords mismatch'));
